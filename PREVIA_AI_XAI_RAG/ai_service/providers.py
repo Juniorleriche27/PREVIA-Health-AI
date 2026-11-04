@@ -181,6 +181,10 @@ def generate(provider_id: str, model_id: str | None, system_prompt: str, user_pr
             payload = response.json()
             result = _response_text(payload, adapter).strip()
             if adapter == "knowlia":
+                # Knowlia may typographically render requested [ID] citations as
+                # full-width brackets. Normalize only the verified ID shape so
+                # PREVIA's downstream citation allow-list can validate it.
+                result = re.sub(r"【([A-Z0-9-]{3,45})】", r"[\1]", result)
                 model = payload.get("data", {}).get("model", model)
         if not result or len(result) > 12000:
             raise ProviderError("Réponse vide ou excessive du fournisseur.")

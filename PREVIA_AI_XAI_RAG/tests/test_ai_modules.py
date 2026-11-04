@@ -278,7 +278,7 @@ def test_knowlia_public_adapter_mock(monkeypatch, tmp_path):
         calls.append((url, kw))
         return httpx.Response(200, request=httpx.Request("POST", url), json={
             "ok": True, "request_id": "test", "data": {
-                "content": "Grounded answer [CDC-A1C-2024]", "provider": "groq",
+                "content": "Grounded answer 【CDC-A1C-2024】", "provider": "groq",
                 "model": "routed-model", "usage": {}, "sources": [],
             },
         })
