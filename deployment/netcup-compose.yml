@@ -1,0 +1,57 @@
+name: previa-health-ai
+
+services:
+  backend:
+    build:
+      context: /opt/apps/previa-health-ai/backend
+      dockerfile: Dockerfile
+    image: previa-health-ai-backend:${PREVIA_RELEASE:-latest}
+    container_name: previa_backend
+    restart: unless-stopped
+    environment:
+      PREVIA_CORS_ORIGINS: ${PREVIA_CORS_ORIGINS}
+    ports:
+      - "127.0.0.1:18765:8765"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/health', timeout=3)"]
+      interval: 20s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+    read_only: true
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    networks: [previa_internal, prod_public]
+
+  ai:
+    build:
+      context: /opt/apps/previa-health-ai
+      dockerfile: PREVIA_AI_XAI_RAG/Dockerfile
+    image: previa-health-ai-sidecar:${PREVIA_RELEASE:-latest}
+    container_name: previa_ai
+    restart: unless-stopped
+    environment:
+      PREVIA_CORS_ORIGINS: ${PREVIA_CORS_ORIGINS}
+      PREVIA_LLM_CONFIG_FILE: /app/config/providers.container.json
+    ports:
+      - "127.0.0.1:18766:8766"
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8766/api/v1/ai/health', timeout=5)"]
+      interval: 30s
+      timeout: 8s
+      retries: 5
+      start_period: 45s
+    read_only: true
+    tmpfs:
+      - /tmp:size=128m,noexec,nosuid
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    networks: [previa_internal, prod_public]
+
+networks:
+  previa_internal:
+    driver: bridge
+  prod_public:
+    external: true
