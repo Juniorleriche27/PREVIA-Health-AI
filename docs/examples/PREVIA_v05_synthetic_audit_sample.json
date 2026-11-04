@@ -1,0 +1,398 @@
+{
+  "data_type": "synthetic_software_audit",
+  "version": "0.5.0",
+  "country": "Togo",
+  "region": "Western Sub-Saharan Africa",
+  "source_url": "https://www.who.int/docs/default-source/cardiovascular-diseases/western-sub-saharan-africa.pdf",
+  "cohort_size": 240,
+  "outreach_capacity": 45,
+  "seed": 2026,
+  "sensitivity_runs": 12,
+  "reference_high_threshold_pct": 10,
+  "simulated_high_reference_count": 121,
+  "cohort_sha256": "8958217d34edc316dc87ea0c8bc81fd8b432625308833a8c65d9b06359afa63a",
+  "source_qa": {
+    "chart_cells": 700,
+    "anchor_cells_compared": 28,
+    "anchor_cells_matched": 28,
+    "nondecreasing_bmi_rows": true,
+    "nonincreasing_risk_as_bp_drops": true,
+    "source_url": "https://www.who.int/docs/default-source/cardiovascular-diseases/western-sub-saharan-africa.pdf",
+    "coverage_notice": "28 externally transcribed anchor cells compared; 672 other cells are NOT independently checked against the WHO PDF. Structural checks cover all 700.",
+    "status": "pass_with_limited_source_checks"
+  },
+  "checks": [
+    {
+      "name": "WHO chart structure and 28 reference anchors",
+      "passed": true,
+      "detail": "700 valid chart cells; 28/28 external anchors matched."
+    },
+    {
+      "name": "Unique synthetic IDs",
+      "passed": true,
+      "detail": "240 unique IDs for 240 fabricated records."
+    },
+    {
+      "name": "All three strategies use identical cohort",
+      "passed": true,
+      "detail": "Each selector receives the same generated records and capacity."
+    },
+    {
+      "name": "Selection invariants · chart_descending",
+      "passed": true,
+      "detail": "45 selected; target 45; all IDs must be unique and in cohort."
+    },
+    {
+      "name": "Selection invariants · sector_balanced",
+      "passed": true,
+      "detail": "45 selected; target 45; all IDs must be unique and in cohort."
+    },
+    {
+      "name": "Selection invariants · seeded_random",
+      "passed": true,
+      "detail": "45 selected; target 45; all IDs must be unique and in cohort."
+    },
+    {
+      "name": "Seed determinism",
+      "passed": true,
+      "detail": "Re-generating the same cohort from the same seed yields identical records."
+    },
+    {
+      "name": "Subgroup denominators · chart_descending",
+      "passed": true,
+      "detail": "Sector and reference-sex totals reconcile with overall cohort, selection, and high chart-category counts."
+    },
+    {
+      "name": "Subgroup denominators · sector_balanced",
+      "passed": true,
+      "detail": "Sector and reference-sex totals reconcile with overall cohort, selection, and high chart-category counts."
+    },
+    {
+      "name": "Subgroup denominators · seeded_random",
+      "passed": true,
+      "detail": "Sector and reference-sex totals reconcile with overall cohort, selection, and high chart-category counts."
+    }
+  ],
+  "software_checks_passed": true,
+  "strategies": [
+    {
+      "key": "chart_descending",
+      "selected_count": 45,
+      "high_reference_selected": 45,
+      "high_reference_capture_pct": 37.19,
+      "high_reference_yield_pct": 100.0,
+      "sector_selection_gap_pp": 8.33,
+      "sex_reference_selection_gap_pp": 7.35,
+      "sector_high_coverage": [
+        {
+          "label": "Demo sector A",
+          "population_count": 60,
+          "high_reference_count": 25,
+          "selected_count": 9,
+          "high_reference_selected": 9,
+          "high_reference_capture_pct": 36.0,
+          "selection_rate_pct": 15.0
+        },
+        {
+          "label": "Demo sector B",
+          "population_count": 60,
+          "high_reference_count": 31,
+          "selected_count": 9,
+          "high_reference_selected": 9,
+          "high_reference_capture_pct": 29.03,
+          "selection_rate_pct": 15.0
+        },
+        {
+          "label": "Demo sector C",
+          "population_count": 60,
+          "high_reference_count": 33,
+          "selected_count": 13,
+          "high_reference_selected": 13,
+          "high_reference_capture_pct": 39.39,
+          "selection_rate_pct": 21.67
+        },
+        {
+          "label": "Demo sector D",
+          "population_count": 60,
+          "high_reference_count": 32,
+          "selected_count": 14,
+          "high_reference_selected": 14,
+          "high_reference_capture_pct": 43.75,
+          "selection_rate_pct": 23.33
+        }
+      ],
+      "sex_reference_high_coverage": [
+        {
+          "label": "female",
+          "population_count": 130,
+          "high_reference_count": 56,
+          "selected_count": 20,
+          "high_reference_selected": 20,
+          "high_reference_capture_pct": 35.71,
+          "selection_rate_pct": 15.38
+        },
+        {
+          "label": "male",
+          "population_count": 110,
+          "high_reference_count": 65,
+          "selected_count": 25,
+          "high_reference_selected": 25,
+          "high_reference_capture_pct": 38.46,
+          "selection_rate_pct": 22.73
+        }
+      ],
+      "decision_rule": "Rank by descending WHO chart-cell value; break ties using fabricated ID.",
+      "note": "This necessarily favors the same chart-based metric used for evaluation; it is circular, not a clinical-performance win.",
+      "selected_ids_sha256": "a8b687d9656bcf5e74031f0af8e749f4bfde4bb2f5ec95844c2e17f2f2981b2d"
+    },
+    {
+      "key": "sector_balanced",
+      "selected_count": 45,
+      "high_reference_selected": 45,
+      "high_reference_capture_pct": 37.19,
+      "high_reference_yield_pct": 100.0,
+      "sector_selection_gap_pp": 1.67,
+      "sex_reference_selection_gap_pp": 10.7,
+      "sector_high_coverage": [
+        {
+          "label": "Demo sector A",
+          "population_count": 60,
+          "high_reference_count": 25,
+          "selected_count": 12,
+          "high_reference_selected": 12,
+          "high_reference_capture_pct": 48.0,
+          "selection_rate_pct": 20.0
+        },
+        {
+          "label": "Demo sector B",
+          "population_count": 60,
+          "high_reference_count": 31,
+          "selected_count": 11,
+          "high_reference_selected": 11,
+          "high_reference_capture_pct": 35.48,
+          "selection_rate_pct": 18.33
+        },
+        {
+          "label": "Demo sector C",
+          "population_count": 60,
+          "high_reference_count": 33,
+          "selected_count": 11,
+          "high_reference_selected": 11,
+          "high_reference_capture_pct": 33.33,
+          "selection_rate_pct": 18.33
+        },
+        {
+          "label": "Demo sector D",
+          "population_count": 60,
+          "high_reference_count": 32,
+          "selected_count": 11,
+          "high_reference_selected": 11,
+          "high_reference_capture_pct": 34.38,
+          "selection_rate_pct": 18.33
+        }
+      ],
+      "sex_reference_high_coverage": [
+        {
+          "label": "female",
+          "population_count": 130,
+          "high_reference_count": 56,
+          "selected_count": 18,
+          "high_reference_selected": 18,
+          "high_reference_capture_pct": 32.14,
+          "selection_rate_pct": 13.85
+        },
+        {
+          "label": "male",
+          "population_count": 110,
+          "high_reference_count": 65,
+          "selected_count": 27,
+          "high_reference_selected": 27,
+          "high_reference_capture_pct": 41.54,
+          "selection_rate_pct": 24.55
+        }
+      ],
+      "decision_rule": "Allocate turns to the sector with the lowest fraction selected, then choose higher WHO chart cells within that sector.",
+      "note": "Equal simulated sector selection rates do NOT prove equitable access, clinical appropriateness, or benefit.",
+      "selected_ids_sha256": "835ce0b0a70f31bbcc4d2a592d69bfbdf933be77cc3a8f555675b6a0d33d4a53"
+    },
+    {
+      "key": "seeded_random",
+      "selected_count": 45,
+      "high_reference_selected": 22,
+      "high_reference_capture_pct": 18.18,
+      "high_reference_yield_pct": 48.89,
+      "sector_selection_gap_pp": 8.33,
+      "sex_reference_selection_gap_pp": 7.35,
+      "sector_high_coverage": [
+        {
+          "label": "Demo sector A",
+          "population_count": 60,
+          "high_reference_count": 25,
+          "selected_count": 12,
+          "high_reference_selected": 6,
+          "high_reference_capture_pct": 24.0,
+          "selection_rate_pct": 20.0
+        },
+        {
+          "label": "Demo sector B",
+          "population_count": 60,
+          "high_reference_count": 31,
+          "selected_count": 14,
+          "high_reference_selected": 5,
+          "high_reference_capture_pct": 16.13,
+          "selection_rate_pct": 23.33
+        },
+        {
+          "label": "Demo sector C",
+          "population_count": 60,
+          "high_reference_count": 33,
+          "selected_count": 10,
+          "high_reference_selected": 5,
+          "high_reference_capture_pct": 15.15,
+          "selection_rate_pct": 16.67
+        },
+        {
+          "label": "Demo sector D",
+          "population_count": 60,
+          "high_reference_count": 32,
+          "selected_count": 9,
+          "high_reference_selected": 6,
+          "high_reference_capture_pct": 18.75,
+          "selection_rate_pct": 15.0
+        }
+      ],
+      "sex_reference_high_coverage": [
+        {
+          "label": "female",
+          "population_count": 130,
+          "high_reference_count": 56,
+          "selected_count": 20,
+          "high_reference_selected": 8,
+          "high_reference_capture_pct": 14.29,
+          "selection_rate_pct": 15.38
+        },
+        {
+          "label": "male",
+          "population_count": 110,
+          "high_reference_count": 65,
+          "selected_count": 25,
+          "high_reference_selected": 14,
+          "high_reference_capture_pct": 21.54,
+          "selection_rate_pct": 22.73
+        }
+      ],
+      "decision_rule": "Draw an equal number of synthetic profiles from a deterministic pseudorandom sample, independent of chart value.",
+      "note": "A control scenario for comparing allocation arithmetic, not a recommended clinical strategy.",
+      "selected_ids_sha256": "f07690315b80a77f3ab7999dcca3dbb78e158ebad44f4af3e91fc318a277dd00"
+    }
+  ],
+  "sensitivity": [
+    {
+      "key": "chart_descending",
+      "capture_pct": {
+        "minimum": 37.19,
+        "median": 46.64,
+        "maximum": 51.72
+      },
+      "reference_sex_gap_pp": {
+        "minimum": 1.67,
+        "median": 9.59,
+        "maximum": 15.53
+      },
+      "sector_gap_pp": {
+        "minimum": 6.66,
+        "median": 10.0,
+        "maximum": 16.66
+      },
+      "high_reference_selected": {
+        "minimum": 45.0,
+        "median": 45.0,
+        "maximum": 45.0
+      }
+    },
+    {
+      "key": "sector_balanced",
+      "capture_pct": {
+        "minimum": 37.19,
+        "median": 46.64,
+        "maximum": 51.72
+      },
+      "reference_sex_gap_pp": {
+        "minimum": 1.67,
+        "median": 9.26,
+        "maximum": 13.86
+      },
+      "sector_gap_pp": {
+        "minimum": 1.67,
+        "median": 1.67,
+        "maximum": 1.67
+      },
+      "high_reference_selected": {
+        "minimum": 45.0,
+        "median": 45.0,
+        "maximum": 45.0
+      }
+    },
+    {
+      "key": "seeded_random",
+      "capture_pct": {
+        "minimum": 13.86,
+        "median": 17.42,
+        "maximum": 24.44
+      },
+      "reference_sex_gap_pp": {
+        "minimum": 1.05,
+        "median": 3.96,
+        "maximum": 14.05
+      },
+      "sector_gap_pp": {
+        "minimum": 5.0,
+        "median": 8.33,
+        "maximum": 20.0
+      },
+      "high_reference_selected": {
+        "minimum": 14.0,
+        "median": 16.5,
+        "maximum": 23.0
+      }
+    }
+  ],
+  "capacity_sensitivity": [
+    {
+      "slots": 22,
+      "share_of_cohort_pct": 9.17,
+      "higher_reference_total": 121,
+      "chart_first_high_selected": 22,
+      "sector_balanced_high_selected": 22,
+      "random_high_selected": 15
+    },
+    {
+      "slots": 45,
+      "share_of_cohort_pct": 18.75,
+      "higher_reference_total": 121,
+      "chart_first_high_selected": 45,
+      "sector_balanced_high_selected": 45,
+      "random_high_selected": 22
+    },
+    {
+      "slots": 90,
+      "share_of_cohort_pct": 37.5,
+      "higher_reference_total": 121,
+      "chart_first_high_selected": 90,
+      "sector_balanced_high_selected": 90,
+      "random_high_selected": 42
+    }
+  ],
+  "conclusion": "The scenario passed reproducible software checks; it has NOT been clinically validated. No model calibration, prediction accuracy, health outcomes, or ethical fairness can be established from synthetic data alone.",
+  "validation_status": "SOFTWARE QA ONLY — CLINICAL VALIDATION NOT PERFORMED",
+  "limitations": [
+    "Only 28 manually transcribed WHO anchor cells were independently cross-checked. The other 672 digital cells require complete source QA before any deployment.",
+    "The WHO table supplies chart-cell reference values; PREVIA is not training or validating a new prediction model.",
+    "Cohort attributes are simulated from arbitrary distributions, not representative samples from the selected country.",
+    "Seed ranges are descriptive across simulated cohorts, NOT confidence or prediction intervals for a population.",
+    "Chart-based capture is evaluated against the same chart used for selection; this is circular and is not clinical accuracy or benefit.",
+    "Sector and reference-sex metrics show synthetic selection disparities; equitable clinical impact requires real studies and appropriate subgroup context.",
+    "No real patients, adjudicated events, calibration, discrimination, screening uptake, outcomes, implementation costs, or lives saved are measured.",
+    "No data are retained by the research evaluation endpoint; download exports are created locally in the user's browser."
+  ]
+}

@@ -1,0 +1,225 @@
+{
+  "title": "PREVIA — Comparison of operating thresholds on validation",
+  "generated_utc": "2026-11-04T17:30:24.267857+00:00",
+  "original_model": "random_forest",
+  "objective": "Preliminary discrimination of contemporaneously observed HbA1c >=5.7%, not future CVD",
+  "validation_only": true,
+  "source_count_total": 2330,
+  "method": "Same original stratified validation partition. Saved model unchanged. All thresholds selected only on validation. The previously reported test set is NOT analyzed.",
+  "results": {
+    "n_validation": 466,
+    "target_positive_validation": 216,
+    "roc_auc_validation": 0.6456481481481482,
+    "pr_auc_validation": 0.5984163313226962,
+    "brier_validation": 0.23200101381042829,
+    "policy_comparison": {
+      "specificity_at_least_80pct": {
+        "decision_rule": {
+          "threshold": 0.5566195769185434,
+          "sensitivity": 0.33796296296296297,
+          "specificity": 0.808,
+          "selected": 121,
+          "balanced_accuracy": 0.5729814814814815
+        },
+        "validation_metrics": {
+          "n": 466,
+          "positives": 216,
+          "positives_rate": 0.463519313304721,
+          "roc_auc": 0.6456481481481482,
+          "pr_auc_average_precision": 0.5984163313226962,
+          "brier": 0.23200101381042829,
+          "log_loss": 0.6552954745265855,
+          "threshold": 0.5566195769185434,
+          "sensitivity_recall": 0.33796296296296297,
+          "specificity": 0.808,
+          "precision_ppv": 0.6033057851239669,
+          "f1": 0.4332344213649852,
+          "balanced_accuracy": 0.5729814814814815,
+          "confusion": {
+            "tn": 202,
+            "fp": 48,
+            "fn": 143,
+            "tp": 73
+          }
+        },
+        "by_reference_sex": {
+          "female": {
+            "n": 238,
+            "positive_n": 102,
+            "selected_n": 67,
+            "selected_rate": 0.2815126050420168,
+            "sensitivity_recall": 0.4019607843137255,
+            "specificity": 0.8088235294117647,
+            "precision_ppv": 0.6119402985074627
+          },
+          "male": {
+            "n": 228,
+            "positive_n": 114,
+            "selected_n": 54,
+            "selected_rate": 0.23684210526315788,
+            "sensitivity_recall": 0.2807017543859649,
+            "specificity": 0.8070175438596491,
+            "precision_ppv": 0.5925925925925926
+          }
+        }
+      },
+      "sensitivity_at_least_70pct": {
+        "decision_rule": {
+          "threshold": 0.4461473017222674,
+          "sensitivity": 0.7037037037037037,
+          "specificity": 0.516,
+          "selected": 273,
+          "balanced_accuracy": 0.6098518518518519
+        },
+        "validation_metrics": {
+          "n": 466,
+          "positives": 216,
+          "positives_rate": 0.463519313304721,
+          "roc_auc": 0.6456481481481482,
+          "pr_auc_average_precision": 0.5984163313226962,
+          "brier": 0.23200101381042829,
+          "log_loss": 0.6552954745265855,
+          "threshold": 0.4461473017222674,
+          "sensitivity_recall": 0.7037037037037037,
+          "specificity": 0.516,
+          "precision_ppv": 0.5567765567765568,
+          "f1": 0.621676891615542,
+          "balanced_accuracy": 0.6098518518518519,
+          "confusion": {
+            "tn": 129,
+            "fp": 121,
+            "fn": 64,
+            "tp": 152
+          }
+        },
+        "by_reference_sex": {
+          "female": {
+            "n": 238,
+            "positive_n": 102,
+            "selected_n": 142,
+            "selected_rate": 0.5966386554621849,
+            "sensitivity_recall": 0.7745098039215687,
+            "specificity": 0.5367647058823529,
+            "precision_ppv": 0.5563380281690141
+          },
+          "male": {
+            "n": 228,
+            "positive_n": 114,
+            "selected_n": 131,
+            "selected_rate": 0.5745614035087719,
+            "sensitivity_recall": 0.6403508771929824,
+            "specificity": 0.49122807017543857,
+            "precision_ppv": 0.5572519083969466
+          }
+        }
+      },
+      "sensitivity_at_least_80pct": {
+        "decision_rule": {
+          "threshold": 0.40850693591174886,
+          "sensitivity": 0.8009259259259259,
+          "specificity": 0.408,
+          "selected": 321,
+          "balanced_accuracy": 0.604462962962963
+        },
+        "validation_metrics": {
+          "n": 466,
+          "positives": 216,
+          "positives_rate": 0.463519313304721,
+          "roc_auc": 0.6456481481481482,
+          "pr_auc_average_precision": 0.5984163313226962,
+          "brier": 0.23200101381042829,
+          "log_loss": 0.6552954745265855,
+          "threshold": 0.40850693591174886,
+          "sensitivity_recall": 0.8009259259259259,
+          "specificity": 0.408,
+          "precision_ppv": 0.5389408099688473,
+          "f1": 0.6443202979515829,
+          "balanced_accuracy": 0.604462962962963,
+          "confusion": {
+            "tn": 102,
+            "fp": 148,
+            "fn": 43,
+            "tp": 173
+          }
+        },
+        "by_reference_sex": {
+          "female": {
+            "n": 238,
+            "positive_n": 102,
+            "selected_n": 164,
+            "selected_rate": 0.6890756302521008,
+            "sensitivity_recall": 0.8333333333333334,
+            "specificity": 0.41911764705882354,
+            "precision_ppv": 0.5182926829268293
+          },
+          "male": {
+            "n": 228,
+            "positive_n": 114,
+            "selected_n": 157,
+            "selected_rate": 0.6885964912280702,
+            "sensitivity_recall": 0.7719298245614035,
+            "specificity": 0.39473684210526316,
+            "precision_ppv": 0.5605095541401274
+          }
+        }
+      },
+      "best_balanced_accuracy": {
+        "decision_rule": {
+          "threshold": 0.39499379336818,
+          "sensitivity": 0.8564814814814815,
+          "specificity": 0.38,
+          "selected": 340,
+          "balanced_accuracy": 0.6182407407407408
+        },
+        "validation_metrics": {
+          "n": 466,
+          "positives": 216,
+          "positives_rate": 0.463519313304721,
+          "roc_auc": 0.6456481481481482,
+          "pr_auc_average_precision": 0.5984163313226962,
+          "brier": 0.23200101381042829,
+          "log_loss": 0.6552954745265855,
+          "threshold": 0.39499379336818,
+          "sensitivity_recall": 0.8564814814814815,
+          "specificity": 0.38,
+          "precision_ppv": 0.5441176470588235,
+          "f1": 0.6654676258992805,
+          "balanced_accuracy": 0.6182407407407408,
+          "confusion": {
+            "tn": 95,
+            "fp": 155,
+            "fn": 31,
+            "tp": 185
+          }
+        },
+        "by_reference_sex": {
+          "female": {
+            "n": 238,
+            "positive_n": 102,
+            "selected_n": 169,
+            "selected_rate": 0.7100840336134454,
+            "sensitivity_recall": 0.8627450980392157,
+            "specificity": 0.40441176470588236,
+            "precision_ppv": 0.5207100591715976
+          },
+          "male": {
+            "n": 228,
+            "positive_n": 114,
+            "selected_n": 171,
+            "selected_rate": 0.75,
+            "sensitivity_recall": 0.8508771929824561,
+            "specificity": 0.3508771929824561,
+            "precision_ppv": 0.5672514619883041
+          }
+        }
+      }
+    }
+  },
+  "caveats": [
+    "A lower threshold can improve sensitivity but increases false positives; this is not improved ROC-AUC.",
+    "Sensitivity targets are reached on validation by construction; no evidence they generalize to new cohorts.",
+    "Sex subgroups are NHANES reference labels and not clinical fairness validation.",
+    "Prior test set was already viewed and is not a new independent test.",
+    "No diagnosis, screening recommendation, clinical action or deployment is supported."
+  ]
+}

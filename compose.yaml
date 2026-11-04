@@ -1,0 +1,36 @@
+services:
+  backend:
+    build: ./backend
+    ports: ["127.0.0.1:8765:8765"]
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8765/health', timeout=2)"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+
+  ai:
+    build:
+      context: .
+      dockerfile: PREVIA_AI_XAI_RAG/Dockerfile
+    ports: ["127.0.0.1:8766:8766"]
+    restart: unless-stopped
+    environment:
+      PREVIA_LLM_CONFIG_FILE: /app/config/providers.container.json
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8766/api/v1/ai/live', timeout=2)"]
+      interval: 15s
+      timeout: 3s
+      retries: 5
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        NEXT_PUBLIC_API_URL: http://127.0.0.1:8765
+        NEXT_PUBLIC_AI_API_URL: http://127.0.0.1:8766
+    ports: ["127.0.0.1:3001:3001"]
+    depends_on:
+      backend: {condition: service_healthy}
+      ai: {condition: service_healthy}
+    restart: unless-stopped

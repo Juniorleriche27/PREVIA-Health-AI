@@ -1,0 +1,245 @@
+{
+  "frozen_utc": "2026-11-04T17:42:06.641648+00:00",
+  "selection_sha256": "bcf4adf1ad707617087c1fde60bc80b2c3ec651c1497d8cee7d3445fddca46e5",
+  "winner": "extended_random_forest",
+  "candidate_decisions": {
+    "baseline_logistic": {
+      "features": [
+        "age",
+        "sex",
+        "bmi",
+        "sbp",
+        "smoking"
+      ],
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.03
+      },
+      "cv_pr_auc": 0.5919799460088053,
+      "oof": {
+        "n": 2330,
+        "positives": 1078,
+        "positive_fraction_unweighted": 0.46266094420600856,
+        "roc_auc": 0.6506917318190709,
+        "pr_auc_ap": 0.5883613128138981,
+        "brier": 0.23164180855735506,
+        "log_loss": 0.6549388077619284,
+        "threshold": 0.39050468346106937,
+        "sensitivity": 0.800556586270872,
+        "specificity": 0.40415335463258784,
+        "precision": 0.5363579863269111,
+        "f1": 0.6423520655005582,
+        "balanced_accuracy": 0.6023549704517299,
+        "confusion": {
+          "tn": 506,
+          "fp": 746,
+          "fn": 215,
+          "tp": 863
+        }
+      },
+      "oof_screening_threshold": 0.39050468346106937
+    },
+    "baseline_random_forest": {
+      "features": [
+        "age",
+        "sex",
+        "bmi",
+        "sbp",
+        "smoking"
+      ],
+      "params": {
+        "model__n_estimators": 250,
+        "model__min_samples_leaf": 24,
+        "model__max_features": "sqrt",
+        "model__max_depth": 4
+      },
+      "cv_pr_auc": 0.5987179806616081,
+      "oof": {
+        "n": 2330,
+        "positives": 1078,
+        "positive_fraction_unweighted": 0.46266094420600856,
+        "roc_auc": 0.6515041610602997,
+        "pr_auc_ap": 0.5899566118506097,
+        "brier": 0.23140940581866126,
+        "log_loss": 0.6542263606649623,
+        "threshold": 0.4201365788419368,
+        "sensitivity": 0.800556586270872,
+        "specificity": 0.3977635782747604,
+        "precision": 0.533704390847248,
+        "f1": 0.6404452690166976,
+        "balanced_accuracy": 0.5991600822728163,
+        "confusion": {
+          "tn": 498,
+          "fp": 754,
+          "fn": 215,
+          "tp": 863
+        }
+      },
+      "oof_screening_threshold": 0.4201365788419368
+    },
+    "extended_logistic": {
+      "features": [
+        "age",
+        "sex",
+        "bmi",
+        "sbp",
+        "smoking",
+        "waist_cm",
+        "hypertension_history",
+        "high_cholesterol_history",
+        "leisure_activity",
+        "work_activity"
+      ],
+      "params": {
+        "model__class_weight": null,
+        "model__C": 0.03
+      },
+      "cv_pr_auc": 0.5964433539137093,
+      "oof": {
+        "n": 2330,
+        "positives": 1078,
+        "positive_fraction_unweighted": 0.46266094420600856,
+        "roc_auc": 0.6534857771165392,
+        "pr_auc_ap": 0.5937069783004643,
+        "brier": 0.23090632408427014,
+        "log_loss": 0.6531618961092712,
+        "threshold": 0.38510043060214455,
+        "sensitivity": 0.800556586270872,
+        "specificity": 0.41214057507987223,
+        "precision": 0.539712320200125,
+        "f1": 0.6447515875980575,
+        "balanced_accuracy": 0.6063485806753721,
+        "confusion": {
+          "tn": 516,
+          "fp": 736,
+          "fn": 215,
+          "tp": 863
+        }
+      },
+      "oof_screening_threshold": 0.38510043060214455
+    },
+    "extended_random_forest": {
+      "features": [
+        "age",
+        "sex",
+        "bmi",
+        "sbp",
+        "smoking",
+        "waist_cm",
+        "hypertension_history",
+        "high_cholesterol_history",
+        "leisure_activity",
+        "work_activity"
+      ],
+      "params": {
+        "model__n_estimators": 250,
+        "model__min_samples_leaf": 24,
+        "model__max_features": "sqrt",
+        "model__max_depth": 4
+      },
+      "cv_pr_auc": 0.6028875154623279,
+      "oof": {
+        "n": 2330,
+        "positives": 1078,
+        "positive_fraction_unweighted": 0.46266094420600856,
+        "roc_auc": 0.6538955111524714,
+        "pr_auc_ap": 0.5982082956875172,
+        "brier": 0.2307720814515159,
+        "log_loss": 0.6529885614759422,
+        "threshold": 0.41470024358924984,
+        "sensitivity": 0.800556586270872,
+        "specificity": 0.40175718849840253,
+        "precision": 0.5353598014888338,
+        "f1": 0.641635687732342,
+        "balanced_accuracy": 0.6011568873846372,
+        "confusion": {
+          "tn": 503,
+          "fp": 749,
+          "fn": 215,
+          "tp": 863
+        }
+      },
+      "oof_screening_threshold": 0.41470024358924984
+    },
+    "extended_hist_gradient_boosting": {
+      "features": [
+        "age",
+        "sex",
+        "bmi",
+        "sbp",
+        "smoking",
+        "waist_cm",
+        "hypertension_history",
+        "high_cholesterol_history",
+        "leisure_activity",
+        "work_activity"
+      ],
+      "params": {
+        "model__min_samples_leaf": 50,
+        "model__max_leaf_nodes": 15,
+        "model__learning_rate": 0.025,
+        "model__l2_regularization": 1
+      },
+      "cv_pr_auc": 0.5901286706010107,
+      "oof": {
+        "n": 2330,
+        "positives": 1078,
+        "positive_fraction_unweighted": 0.46266094420600856,
+        "roc_auc": 0.6442537950411068,
+        "pr_auc_ap": 0.5856285916956493,
+        "brier": 0.23247239659248445,
+        "log_loss": 0.6562935713772161,
+        "threshold": 0.3965162042967945,
+        "sensitivity": 0.800556586270872,
+        "specificity": 0.4009584664536741,
+        "precision": 0.5350278983261004,
+        "f1": 0.6413972500929023,
+        "balanced_accuracy": 0.6007575263622731,
+        "confusion": {
+          "tn": 502,
+          "fp": 750,
+          "fn": 215,
+          "tp": 863
+        }
+      },
+      "oof_screening_threshold": 0.3965162042967945
+    }
+  },
+  "development_counts": {
+    "cycle_suffix": "J",
+    "aged_40_74": 3201,
+    "without_self_reported_diagnosed_diabetes": 2555,
+    "before_hba1c_filter": 2555,
+    "labeled_n": 2330,
+    "target_positive_n": 1078,
+    "target_rate_unweighted": 0.46266094420600856,
+    "feature_missing": {
+      "age": 0,
+      "sex": 0,
+      "bmi": 23,
+      "sbp": 98,
+      "smoking": 0,
+      "waist_cm": 91,
+      "hypertension_history": 2,
+      "high_cholesterol_history": 10,
+      "leisure_activity": 0,
+      "work_activity": 5
+    },
+    "feature_missing_rate": {
+      "age": 0.0,
+      "sex": 0.0,
+      "bmi": 0.009871244635193134,
+      "sbp": 0.04206008583690987,
+      "smoking": 0.0,
+      "waist_cm": 0.03905579399141631,
+      "hypertension_history": 0.0008583690987124463,
+      "high_cholesterol_history": 0.004291845493562232,
+      "leisure_activity": 0.0,
+      "work_activity": 0.002145922746781116
+    },
+    "reference_sex_counts": {
+      "female": 1234,
+      "male": 1096
+    }
+  }
+}

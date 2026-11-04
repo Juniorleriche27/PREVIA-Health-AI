@@ -1,0 +1,17 @@
+{
+  "README_MULTIPROVIDER.md": "bd600daa7d91ee30b61c12181417b2759ecf531ee53146da86cf1d5913afb4ef",
+  "PREVIA_AI_XAI_RAG/ai_service/app.py": "07f9b237126c78a6f0ee821bb7fc5ac167c5d913cea4b2d3a6b0ec6dcf1f42e3",
+  "PREVIA_AI_XAI_RAG/ai_service/providers.py": "96274742484973e0542cdc95c4a159ad9c50137bd7bde0e726e491d1c01a8de6",
+  "PREVIA_AI_XAI_RAG/ai_service/rag.py": "6038cf04285c9dadffd79ec122701f700e7927be6cbcadc6c9b6cd6f575fb3d7",
+  "PREVIA_AI_XAI_RAG/config/providers.example.json": "e192b80563e8925687fb2056c2abf6fb6f397e93466a4eed77d70fe09f773c84",
+  "PREVIA_AI_XAI_RAG/README.md": "a9e03776ff128904f5bf46f32ca2b79329aceb86f06bc0ae0993117782e32e44",
+  "PREVIA_AI_XAI_RAG/.gitignore": "12973abd812e4fc2bc8a035a702d0ef58130804decaff77b7391dabd16af1cfa",
+  "PREVIA_AI_XAI_RAG/tests/test_ai_modules.py": "bba0ec06eec3bb83f527e7fa0ad87e928fec34d545724d404904d1ee81f49b94",
+  "frontend/app/ai/page.tsx": "8ee40f1136a63d11556062bcb55ba87934557f742a76e3b9e74f02a73e8a73f3",
+  "frontend/app/ai/ai.module.css": "49bd9a3dc6439c73af399dedae6573da0bbf137ac1141a4e1bbb5db1d8055672",
+  "scripts/previa_ai.ps1": "218e9bcbbc11fcf3720d400c7f6afaa227a61980c5d200fc497ddbb9c9d29398",
+  "scripts/previa_full.ps1": "577c0e3dbb2f5c81c0d5c56f1ecc2bbd491a4a521cce543e3bb6ade3ee61e2b6",
+  "scripts/install_previa_ai.ps1": "d678d5bd48d235ad9a235b43b54bba9b423550876f064943d0a9893868f91eaf",
+  "scripts/configure_previa_llm.ps1": "08a6e8941d3df79e891a2b4795c95858618260180968b92105d9539b30315887",
+  "scripts/install_previa_rag_v10.ps1": "9ad9bf9d8cd47cddeac36050efa968c1395a30a92ff05f9afe41ea605c4a8a71"
+}

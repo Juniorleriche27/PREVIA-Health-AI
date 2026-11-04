@@ -1,0 +1,80 @@
+{
+  "dataset": "sklearn load_diabetes built-in real patient dataset (442 rows)",
+  "source": "https://scikit-learn.org/stable/datasets/toy_dataset.html#diabetes-dataset",
+  "task": "regression of quantitative disease progression after one year; NOT HbA1c or event risk",
+  "date_utc": "2026-11-04T17:14:40.961659+00:00",
+  "train_n": 264,
+  "validation_n": 89,
+  "test_n": 89,
+  "selected": "ridge",
+  "validation": [
+    {
+      "name": "ridge",
+      "cv_mae": 44.51432697123121,
+      "validation": {
+        "r2": 0.5169416019349576,
+        "mae": 46.80211054684843,
+        "rmse": 56.338775553912235
+      },
+      "params": {
+        "ridge__alpha": 1
+      }
+    },
+    {
+      "name": "elasticnet",
+      "cv_mae": 44.48571494152076,
+      "validation": {
+        "r2": 0.5142872242670697,
+        "mae": 46.98568384424448,
+        "rmse": 56.49335263645647
+      },
+      "params": {
+        "elasticnet__alpha": 0.1,
+        "elasticnet__l1_ratio": 0.9
+      }
+    },
+    {
+      "name": "random_forest",
+      "cv_mae": 47.07575206573885,
+      "validation": {
+        "r2": 0.4737450264685432,
+        "mae": 48.47837427875302,
+        "rmse": 58.8038406718971
+      },
+      "params": {
+        "max_depth": 8,
+        "min_samples_leaf": 5,
+        "n_estimators": 200
+      }
+    },
+    {
+      "name": "hist_gradient_boosting",
+      "cv_mae": 46.574485167108556,
+      "validation": {
+        "r2": 0.39826993198509253,
+        "mae": 51.343049162034006,
+        "rmse": 62.87940771424368
+      },
+      "params": {
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 7,
+        "min_samples_leaf": 10
+      }
+    }
+  ],
+  "test": {
+    "r2": 0.5281759548795296,
+    "mae": 41.78824161921288,
+    "rmse": 52.924067933898996
+  },
+  "dummy_baseline_test": {
+    "r2": -2.888759898977966e-05,
+    "mae": 68.39691862444671,
+    "rmse": 77.04943460505334
+  },
+  "limitations": [
+    "This is an independent pipeline sanity-check only, not the NHANES HbA1c experiment.",
+    "The diabetes dataset has a quantitative outcome and ten different predictors.",
+    "These scores cannot be used to claim PREVIA cardiovascular or HbA1c clinical performance."
+  ]
+}

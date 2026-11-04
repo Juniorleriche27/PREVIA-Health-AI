@@ -1,0 +1,15 @@
+{
+  "providers": [
+    {
+      "id": "my-provider",
+      "label": "My LLM provider",
+      "adapter": "openai_compatible",
+      "base_url": "https://YOUR-SERVER.example/v1",
+      "default_model": "YOUR-MODEL-ID",
+      "api_key_env": "PREVIA_LLM_KEY_MY_PROVIDER",
+      "timeout_seconds": 25,
+      "max_tokens": 350,
+      "enabled": false
+    }
+  ]
+}

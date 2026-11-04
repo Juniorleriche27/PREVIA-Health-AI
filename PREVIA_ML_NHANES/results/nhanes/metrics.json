@@ -1,0 +1,280 @@
+{
+  "study": "NHANES 2017-2018 observed HbA1c >=5.7% (screening research)",
+  "created_utc": "2026-11-04T17:22:09.487260+00:00",
+  "source": "CDC NHANES 2017–2018",
+  "source_file_sha256": {
+    "DEMO_J": "c0b46e0345ea19404928656277c8b0d10b0cca348a9b2fe4fc3c67e8b7ee73ec",
+    "BMX_J": "8d675e42d8826ac98714b2c3dd4c5138a5e353fb4424f7eff5e6db4a01ce838a",
+    "BPX_J": "f98f1d9a4c18173e715c749b4294f6f1525140d5ad5751316bb17cc038fb3423",
+    "SMQ_J": "73c3708e540cbf520a566508aa629c3e4ba53cad77dae9388ca36384646455f4",
+    "DIQ_J": "1ecbf5360dfc331d1efbf32198553dc30e9a1f4cff0a907ed30ca72bac797f89",
+    "GHB_J": "35f07094573a0061a03ed609a5a363b34eb1b1c7065d1623b43d72e132a8a654"
+  },
+  "counts": {
+    "initial_aged_40_74": 3201,
+    "without_known_diabetes": 2555,
+    "before_hba1c_missing_filter": 2555,
+    "eligible_measured_hba1c": 2330,
+    "target_positive_n": 1078,
+    "target_negative_n": 1252,
+    "target_fraction": 0.46266,
+    "missing_features": {
+      "age": 0,
+      "sex": 0,
+      "bmi": 23,
+      "sbp": 98,
+      "smoking": 0
+    },
+    "sex_counts": {
+      "female": 1234,
+      "male": 1096
+    }
+  },
+  "design": {
+    "split": "60% train / 20% validation / 20% untouched test",
+    "seed": 2026,
+    "stratified": true,
+    "cv_folds": 4,
+    "tuning": "RandomizedSearchCV on training only",
+    "selection": "highest validation ROC AUC; tie by Brier",
+    "threshold": "highest validation recall with specificity >=0.80",
+    "input_features": [
+      "age",
+      "sex",
+      "bmi",
+      "sbp",
+      "smoking"
+    ],
+    "exclusion": "known diabetes DIQ010=1; unknown diagnosis excluded",
+    "survey_weights": "not applied; unweighted predictive sample; no population estimates"
+  },
+  "split_counts": {
+    "train": 1398,
+    "validation": 466,
+    "test": 466
+  },
+  "contenders": [
+    {
+      "model": "dummy_prior",
+      "cv_roc_auc": 0.5,
+      "validation": {
+        "n": 466,
+        "positives": 216,
+        "positives_rate": 0.463519313304721,
+        "roc_auc": 0.5,
+        "pr_auc_average_precision": 0.463519313304721,
+        "brier": 0.24867120615798988,
+        "log_loss": 0.6904872493935368,
+        "threshold": 0.5,
+        "sensitivity_recall": 0.0,
+        "specificity": 1.0,
+        "precision_ppv": 0.0,
+        "f1": 0.0,
+        "balanced_accuracy": 0.5,
+        "confusion": {
+          "tn": 250,
+          "fp": 0,
+          "fn": 216,
+          "tp": 0
+        }
+      },
+      "params": {}
+    },
+    {
+      "model": "logistic",
+      "cv_roc_auc": 0.6407866984975372,
+      "validation": {
+        "n": 466,
+        "positives": 216,
+        "positives_rate": 0.463519313304721,
+        "roc_auc": 0.6436851851851852,
+        "pr_auc_average_precision": 0.6069424808211302,
+        "brier": 0.23507301374921533,
+        "log_loss": 0.6623515176323652,
+        "threshold": 0.5,
+        "sensitivity_recall": 0.6018518518518519,
+        "specificity": 0.584,
+        "precision_ppv": 0.5555555555555556,
+        "f1": 0.5777777777777777,
+        "balanced_accuracy": 0.5929259259259259,
+        "confusion": {
+          "tn": 146,
+          "fp": 104,
+          "fn": 86,
+          "tp": 130
+        }
+      },
+      "params": {
+        "model__class_weight": "balanced",
+        "model__C": 0.01
+      }
+    },
+    {
+      "model": "random_forest",
+      "cv_roc_auc": 0.6454221404017119,
+      "validation": {
+        "n": 466,
+        "positives": 216,
+        "positives_rate": 0.463519313304721,
+        "roc_auc": 0.6456481481481482,
+        "pr_auc_average_precision": 0.5984163313226962,
+        "brier": 0.23200101381042829,
+        "log_loss": 0.6552954745265855,
+        "threshold": 0.5,
+        "sensitivity_recall": 0.5509259259259259,
+        "specificity": 0.656,
+        "precision_ppv": 0.5804878048780487,
+        "f1": 0.5653206650831354,
+        "balanced_accuracy": 0.603462962962963,
+        "confusion": {
+          "tn": 164,
+          "fp": 86,
+          "fn": 97,
+          "tp": 119
+        }
+      },
+      "params": {
+        "model__n_estimators": 150,
+        "model__min_samples_leaf": 20,
+        "model__max_features": "sqrt",
+        "model__max_depth": null
+      }
+    },
+    {
+      "model": "hist_gradient_boosting",
+      "cv_roc_auc": 0.6356819409162918,
+      "validation": {
+        "n": 466,
+        "positives": 216,
+        "positives_rate": 0.463519313304721,
+        "roc_auc": 0.6306666666666667,
+        "pr_auc_average_precision": 0.5812752922174613,
+        "brier": 0.23503256270135978,
+        "log_loss": 0.6617667717546517,
+        "threshold": 0.5,
+        "sensitivity_recall": 0.5277777777777778,
+        "specificity": 0.624,
+        "precision_ppv": 0.5480769230769231,
+        "f1": 0.5377358490566038,
+        "balanced_accuracy": 0.5758888888888889,
+        "confusion": {
+          "tn": 156,
+          "fp": 94,
+          "fn": 102,
+          "tp": 114
+        }
+      },
+      "params": {
+        "model__min_samples_leaf": 20,
+        "model__max_leaf_nodes": 7,
+        "model__learning_rate": 0.025,
+        "model__l2_regularization": 1
+      }
+    }
+  ],
+  "selected_model": "random_forest",
+  "validation_selected": {
+    "n": 466,
+    "positives": 216,
+    "positives_rate": 0.463519313304721,
+    "roc_auc": 0.6456481481481482,
+    "pr_auc_average_precision": 0.5984163313226962,
+    "brier": 0.23200101381042829,
+    "log_loss": 0.6552954745265855,
+    "threshold": 0.5549999999999999,
+    "sensitivity_recall": 0.33796296296296297,
+    "specificity": 0.804,
+    "precision_ppv": 0.5983606557377049,
+    "f1": 0.4319526627218935,
+    "balanced_accuracy": 0.5709814814814815,
+    "confusion": {
+      "tn": 201,
+      "fp": 49,
+      "fn": 143,
+      "tp": 73
+    }
+  },
+  "heldout_test": {
+    "n": 466,
+    "positives": 216,
+    "positives_rate": 0.463519313304721,
+    "roc_auc": 0.6972037037037037,
+    "pr_auc_average_precision": 0.6516259136684517,
+    "brier": 0.22089882050864157,
+    "log_loss": 0.6316824289030449,
+    "threshold": 0.5549999999999999,
+    "sensitivity_recall": 0.4398148148148148,
+    "specificity": 0.808,
+    "precision_ppv": 0.6643356643356644,
+    "f1": 0.5292479108635098,
+    "balanced_accuracy": 0.6239074074074075,
+    "confusion": {
+      "tn": 202,
+      "fp": 48,
+      "fn": 121,
+      "tp": 95
+    }
+  },
+  "heldout_dummy_prior": {
+    "n": 466,
+    "positives": 216,
+    "positives_rate": 0.463519313304721,
+    "roc_auc": 0.5,
+    "pr_auc_average_precision": 0.463519313304721,
+    "brier": 0.24867120615798985,
+    "log_loss": 0.6904872493935368,
+    "threshold": 0.5,
+    "sensitivity_recall": 0.0,
+    "specificity": 1.0,
+    "precision_ppv": 0.0,
+    "f1": 0.0,
+    "balanced_accuracy": 0.5,
+    "confusion": {
+      "tn": 250,
+      "fp": 0,
+      "fn": 216,
+      "tp": 0
+    }
+  },
+  "validation_permutation_importance_auc_drop": [
+    {
+      "feature": "age",
+      "auc_drop_mean": 0.06657407407407412,
+      "auc_drop_std": 0.016754165892695034
+    },
+    {
+      "feature": "bmi",
+      "auc_drop_mean": 0.048603009259259325,
+      "auc_drop_std": 0.01629470835954261
+    },
+    {
+      "feature": "sex",
+      "auc_drop_mean": 0.018998842592592657,
+      "auc_drop_std": 0.005478458949701444
+    },
+    {
+      "feature": "sbp",
+      "auc_drop_mean": 0.01488773148148155,
+      "auc_drop_std": 0.008905964065392966
+    },
+    {
+      "feature": "smoking",
+      "auc_drop_mean": 0.01301157407407412,
+      "auc_drop_std": 0.006135920023264072
+    }
+  ],
+  "heldout_test_auc_bootstrap_95pct_descriptive": [
+    0.6484645850603299,
+    0.7370117779710637
+  ],
+  "limitations": [
+    "Cross-sectional association with measured HbA1c, not future disease or 10-year CVD events.",
+    "Self-reported known diabetes excluded, not necessarily undiagnosed cases.",
+    "No survey-weighted or nationally representative population statistics.",
+    "NHANES participants in United States; no validation in Togo.",
+    "Missing measurements and social context can bias results.",
+    "HbA1c can be misleading in some hemoglobin disorders and conditions.",
+    "Not clinical diagnostic or referral software.",
+    "Only validated model metrics from holdout, no clinical utility demonstrated."
+  ]
+}

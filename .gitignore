@@ -1,0 +1,41 @@
+node_modules/
+.next/
+.env.local
+.venv/
+**/.venv/
+**/.venv_ml/
+__pycache__/
+.pytest_cache/
+*.pyc
+*.pyo
+.DS_Store
+# Module 06: downloaded public NHANES survey files stay on local workstation
+local_public_data/
+backend/data/nhanes2017_2018_aggregate.json
+.previa-runtime/
+frontend/.next/
+frontend/.next-dev/
+frontend/node_modules/
+__pycache__/
+*.pyc
+
+# Local secrets and provider credentials
+.env
+.env.*
+!.env.example
+!**/.env.local.example
+providers.local.json
+*.pem
+*.key
+
+# Public source datasets are reproducible downloads, not repository assets
+**/data/raw/
+*.xpt
+
+# Keep only the frozen production artifact; exclude intermediate fitted models
+*.joblib
+!PREVIA_ML_Validation_Externe/results/cross_cycle/PREVIA_HBA1C_MODEL_CROSS_CYCLE.joblib
+
+# Editor/backup and generated runtime files
+*.bak
+*.log
