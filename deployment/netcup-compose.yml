@@ -35,6 +35,7 @@ services:
     environment:
       PREVIA_CORS_ORIGINS: ${PREVIA_CORS_ORIGINS}
       PREVIA_LLM_CONFIG_FILE: /app/config/providers.container.json
+      PREVIA_KNOWLIA_API_KEY: ${PREVIA_KNOWLIA_API_KEY}
     ports:
       - "127.0.0.1:18766:8766"
     healthcheck:

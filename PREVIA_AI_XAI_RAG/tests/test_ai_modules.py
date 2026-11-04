@@ -219,6 +219,7 @@ def test_provider_registry_is_empty_without_config(monkeypatch, tmp_path):
     client = TestClient(app)
     result = client.get("/api/v1/ai/providers")
     assert result.status_code == 200 and result.json()["providers"] == []
+    assert result.json()["default"] == "extractive"
 
 
 def test_multi_provider_openai_compatible_mock(monkeypatch, tmp_path):
@@ -261,6 +262,33 @@ def test_native_provider_adapters_mock(monkeypatch, tmp_path):
     for adapter in responses:
         result, model = providers.generate(adapter, None, "System", "User")
         assert "[WHO-CVD-2019]" in result and model == "test-model"
+
+
+def test_knowlia_public_adapter_mock(monkeypatch, tmp_path):
+    file = tmp_path / "providers.json"
+    file.write_text(json.dumps({"providers": [{
+        "id": "knowlia", "label": "Knowlia", "adapter": "knowlia",
+        "base_url": "http://prod_knowlia:8080", "tenant_id": "previa-health-ai",
+        "default_model": "command-a-03-2025", "api_key_env": "PREVIA_KNOWLIA_API_KEY",
+    }]}))
+    monkeypatch.setenv("PREVIA_LLM_CONFIG_FILE", str(file))
+    monkeypatch.setenv("PREVIA_KNOWLIA_API_KEY", "server-side-secret")
+    calls = []
+    def mock_post(self, url, **kw):
+        calls.append((url, kw))
+        return httpx.Response(200, request=httpx.Request("POST", url), json={
+            "ok": True, "request_id": "test", "data": {
+                "content": "Grounded answer [CDC-A1C-2024]", "provider": "groq",
+                "model": "routed-model", "usage": {}, "sources": [],
+            },
+        })
+    monkeypatch.setattr(httpx.Client, "post", mock_post)
+    text, model = providers.generate("knowlia", None, "System", "Question")
+    assert text == "Grounded answer [CDC-A1C-2024]" and model == "routed-model"
+    assert calls[0][0] == "http://prod_knowlia:8080/public/v1/generate"
+    assert calls[0][1]["headers"] == {"X-Knowlia-Api-Key": "server-side-secret"}
+    assert calls[0][1]["json"]["tenant_id"] == "previa-health-ai"
+    assert calls[0][1]["json"]["web_access"] == "off"
 
 
 def test_reject_remote_http_endpoint_and_unregistered_provider(monkeypatch, tmp_path):

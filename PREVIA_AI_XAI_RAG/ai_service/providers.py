@@ -16,7 +16,7 @@ from urllib.parse import quote, urlsplit
 import httpx
 
 MODULE_ROOT = Path(__file__).resolve().parents[1]
-ADAPTERS = {"openai_compatible", "anthropic", "gemini", "cohere"}
+ADAPTERS = {"openai_compatible", "anthropic", "gemini", "cohere", "knowlia"}
 ID_PATTERN = re.compile(r"^[a-z][a-z0-9_-]{1,40}$")
 MODEL_PATTERN = re.compile(r"^[\w./:@+\-]{1,160}$", re.ASCII)
 
@@ -41,6 +41,17 @@ def _check_endpoint(url: str) -> str:
     return url.rstrip("/")
 
 
+def _check_knowlia_endpoint(url: str) -> str:
+    """Allow HTTPS or the fixed Docker service names on a private network."""
+    p = urlsplit(url)
+    if p.username or p.password or p.query or p.fragment or not p.hostname:
+        raise ValueError("Endpoint Knowlia mal formé.")
+    internal = p.hostname in {"prod_knowlia", "knowlia"}
+    if p.scheme != "https" and not (internal and p.scheme == "http"):
+        raise ValueError("HTTPS est requis hors du réseau Docker Knowlia.")
+    return url.rstrip("/")
+
+
 def _configs() -> list[dict[str, Any]]:
     file = config_path()
     if not file.is_file():
@@ -61,6 +72,11 @@ def _configs() -> list[dict[str, Any]]:
                 raise ValueError("Modèle configuré invalide.")
             if p["adapter"] == "openai_compatible":
                 _check_endpoint(p.get("base_url", ""))
+            if p["adapter"] == "knowlia":
+                _check_knowlia_endpoint(p.get("base_url", ""))
+                tenant_id = p.get("tenant_id", "previa-health-ai")
+                if not isinstance(tenant_id, str) or not re.fullmatch(r"[a-z0-9][a-z0-9_-]{2,79}", tenant_id):
+                    raise ValueError("Tenant Knowlia invalide.")
             if "api_key_env" in p and (not isinstance(p["api_key_env"], str) or not re.fullmatch(r"[A-Z][A-Z0-9_]{2,100}", p["api_key_env"])):
                 raise ValueError("Variable de clé API invalide.")
             timeout = p.get("timeout_seconds", 25)
@@ -97,6 +113,8 @@ def _response_text(payload: dict[str, Any], adapter: str) -> str:
         return "\n".join(c["text"] for c in payload["candidates"][0]["content"]["parts"] if "text" in c)
     if adapter == "cohere":
         return "\n".join(c["text"] for c in payload["message"]["content"] if c.get("type") == "text")
+    if adapter == "knowlia":
+        return payload["data"]["content"]
     raise ProviderError("Type de réponse non pris en charge.")
 
 
@@ -140,6 +158,19 @@ def generate(provider_id: str, model_id: str | None, system_prompt: str, user_pr
         url = "https://api.cohere.com/v2/chat"
         headers = {"Authorization": f"Bearer {key}"}
         body = {"model": model, "messages": messages, "stream": False, "max_tokens": max_tokens, "temperature": 0.1}
+    elif adapter == "knowlia":
+        url = _check_knowlia_endpoint(p["base_url"]) + "/public/v1/generate"
+        headers = {"X-Knowlia-Api-Key": key}
+        body = {
+            "tenant_id": p.get("tenant_id", "previa-health-ai"),
+            "messages": messages,
+            "model": model,
+            "temperature": 0.1,
+            "max_tokens": max_tokens,
+            "timeout_seconds": p.get("timeout_seconds", 25),
+            "web_access": "off",
+            "metadata": {"application": "previa-health-ai", "mode": "grounded-rag"},
+        }
     else:
         raise ProviderError("Adaptateur non disponible.")
     try:
@@ -147,7 +178,10 @@ def generate(provider_id: str, model_id: str | None, system_prompt: str, user_pr
         with httpx.Client(timeout=timeout, follow_redirects=False) as client:
             response = client.post(url, headers=headers, json=body)
             response.raise_for_status()
-            result = _response_text(response.json(), adapter).strip()
+            payload = response.json()
+            result = _response_text(payload, adapter).strip()
+            if adapter == "knowlia":
+                model = payload.get("data", {}).get("model", model)
         if not result or len(result) > 12000:
             raise ProviderError("Réponse vide ou excessive du fournisseur.")
         return result[:3000], model

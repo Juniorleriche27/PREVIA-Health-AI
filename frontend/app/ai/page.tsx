@@ -87,7 +87,11 @@ export default function AIPage() {
     let active = true;
     fetch(`${AI_API}/api/v1/ai/providers`, { cache: "no-store" })
       .then(async r => { if (!r.ok) throw new Error("Unable to load provider registry."); return r.json(); })
-      .then((r: {providers: Provider[]}) => { if (active) setProviders(r.providers); })
+      .then((r: {providers: Provider[]; default?: string}) => { if (active) {
+        setProviders(r.providers);
+        const selected = r.providers.find(item => item.id === r.default && item.ready);
+        if (selected) { setProvider(selected.id); setModel(selected.default_model); }
+      } })
       .catch((e: unknown) => { if (active) setProviderError(e instanceof Error ? e.message : "Providers unavailable."); });
     fetch(`${AI_API}/api/v1/ai/health`, { cache: "no-store" })
       .then(async r => { if (!r.ok) throw new Error(); return r.json(); })

@@ -106,7 +106,10 @@ def live() -> dict[str, str]:
 @app.get("/api/v1/ai/providers")
 def llm_providers() -> dict:
     try:
-        return {"providers": providers_public(), "default": "extractive", "message": "Aucun fournisseur LLM n’est utilisé automatiquement."}
+        configured = providers_public()
+        knowlia_ready = any(item["id"] == "knowlia" and item["ready"] for item in configured)
+        return {"providers": configured, "default": "knowlia" if knowlia_ready else "extractive",
+                "message": "Knowlia est le moteur d’intelligence configuré pour PREVIA." if knowlia_ready else "Mode documentaire extractif local."}
     except ProviderError:
         raise HTTPException(status_code=503, detail="Configuration des fournisseurs invalide.") from None
 
