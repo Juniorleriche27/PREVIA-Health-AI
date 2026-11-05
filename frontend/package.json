@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "i18n:check": "node scripts/check-i18n.mjs"
+    "i18n:check": "node scripts/check-i18n.mjs",
+    "test": "npm run i18n:check && tsc --noEmit"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",

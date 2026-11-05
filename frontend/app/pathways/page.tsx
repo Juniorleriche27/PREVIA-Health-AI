@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8765";
 const COUNTRIES = ["Benin", "Burkina Faso", "Cabo Verde", "Cameroon", "Chad", "Cote d'Ivoire", "Gambia", "Ghana", "Guinea", "Guinea-Bissau", "Liberia", "Mali", "Mauritania", "Niger", "Nigeria", "Sao Tome and Principe", "Senegal", "Sierra Leone", "Togo"];
@@ -68,6 +69,7 @@ function exportScenario(result: PathwayResult, events: Event[]) {
 }
 
 export default function PathwaysPage() {
+  const { t, formatPercent } = useI18n();
   const [country, setCountry] = useState("Togo");
   const [cohortSize, setCohortSize] = useState(240);
   const [capacity, setCapacity] = useState(45);
@@ -163,12 +165,12 @@ export default function PathwaysPage() {
         <p className="scope-note">Running a new scenario discards local replay actions. The backend stores no case histories.</p>
       </aside>
       <div className="resultArea" aria-live="polite">
-        {error && <div className="result error" role="alert">{error}</div>}
+        {error && <div className="result error" role="alert">{t(error)}</div>}
         {!result ? <div className="panel">Loading fictional pathway…</div> : <>
           <div className="metricGrid pathMetrics">
             <Metric label="Fictional cases selected" value={String(result.summary.selected)} note="From the existing strategy engine"/>
-            <Metric label="Invited in simulation" value={String(result.summary.invited)} note={`${result.summary.invited_share_pct}% of fictitious selection`}/>
-            <Metric label="Mock visits attended" value={String(result.summary.attended)} note={`${result.summary.attended_share_pct}% of fictitious selection`}/>
+            <Metric label="Invited in simulation" value={String(result.summary.invited)} note={`${formatPercent(result.summary.invited_share_pct, 2)} of fictitious selection`}/>
+            <Metric label="Mock visits attended" value={String(result.summary.attended)} note={`${formatPercent(result.summary.attended_share_pct, 2)} of fictitious selection`}/>
             <Metric label="Mock review stage" value={String(result.summary.reviewed)} note="Not real clinical completion"/>
           </div>
           <section className="insightCard pathFunnel"><div className="pathHead"><div><span className="eyebrow">ILLUSTRATIVE FUNNEL</span><h3>From selection to simulated review</h3></div><span className="stepchip">{result.events_replayed} user event(s)</span></div>
@@ -176,7 +178,7 @@ export default function PathwaysPage() {
               <div className="pathStepTop"><b>{String(i + 1).padStart(2, "0")}</b><span>{STEP_LABELS[step.key] || step.key}</span></div>
               <strong>{step.count}<small> / {result.selected_count}</small></strong>
               <div className="bartrack"><div className="barfill" style={{width:`${step.share_of_selected_pct}%`,background:"#0f7e8b"}}/></div>
-              <small>{step.share_of_selected_pct}% of selected</small>
+              <small>{formatPercent(step.share_of_selected_pct, 2)} of selected</small>
             </div>)}</div>
             <p className="pathCaveat">Initial conversion counts are based on deliberately invented demonstration ratios, not healthcare uptake, appointments or patient outcomes. Actions below change only fictitious state.</p>
           </section>
@@ -188,7 +190,7 @@ export default function PathwaysPage() {
         <section id="pathway-console-anchor" className="panel pathConsole"><span className="eyebrow">INTERACTIVE WORKFLOW</span><h2>Advance a fictional case</h2>
           <p className="scope-note">Choose a fabricated identifier. Every button merely replays an allowed transition against the current deterministic scenario.</p>
           <label className="pathSelect">Synthetic identifier<select value={selectedId} onChange={e=>setSelectedId(e.target.value)}>{result.cases.map(c=><option key={c.synthetic_id} value={c.synthetic_id}>{c.synthetic_id} · {STAGE_NAMES[c.stage]}</option>)}</select></label>
-          {selectedCase && <div className="pathCase"><div><span>ID</span><b>{selectedCase.synthetic_id}</b></div><div><span>Status</span><b>{STAGE_NAMES[selectedCase.stage]}</b></div><div><span>Demo sector</span><b>{selectedCase.demonstration_sector}</b></div><div><span>WHO chart cell</span><b>{selectedCase.chart_value_percent}%</b></div></div>}
+          {selectedCase && <div className="pathCase"><div><span>ID</span><b>{selectedCase.synthetic_id}</b></div><div><span>Status</span><b>{STAGE_NAMES[selectedCase.stage]}</b></div><div><span>Demo sector</span><b>{selectedCase.demonstration_sector}</b></div><div><span>WHO chart cell</span><b>{formatPercent(selectedCase.chart_value_percent, 0)}</b></div></div>}
           <div className="pathActions">{selectedCase?.next_actions.map(action => <button type="button" key={action} disabled={working} className={action === "decline" ? "pathDanger" : ""} onClick={() => void apply(selectedCase.synthetic_id, action)}>{ACTION_LABELS[action]} <span aria-hidden="true">→</span></button>)}</div>
           {selectedCase?.next_actions.length === 0 && <div className="pathResolved">This fictitious case has reached its final demo state.</div>}
           <div className="pathLog"><b>Session-only replay log</b>{events.length === 0 ? <p>No manual events yet. You can advance a fictitious case to demonstrate the transition rules.</p> : <ol>{events.slice(-8).map((event, idx)=><li key={`${idx}-${event.synthetic_id}-${event.action}`}><code>{event.synthetic_id}</code> {ACTION_LABELS[event.action]}</li>)}</ol>}</div>
@@ -204,7 +206,7 @@ export default function PathwaysPage() {
       <section className="panel pathTablePanel"><div className="pathHead"><div><span className="eyebrow">FICTIONAL CASE QUEUE</span><h2>Review the entire simulated selection</h2></div>
         <label className="pathFilter">Filter stage<select value={filter} onChange={e=>setFilter(e.target.value)}><option value="all">All statuses</option>{Object.keys(STAGE_NAMES).map(x=><option key={x} value={x}>{STAGE_NAMES[x as Step]}</option>)}</select></label></div>
         <div className="tableScroll"><table className="popTable"><thead><tr><th>Synthetic ID</th><th>Fictitious sector</th><th>Age band</th><th>WHO reference</th><th>Current status</th><th>Further milestone</th></tr></thead>
-          <tbody>{rows.map(c=><tr key={c.synthetic_id}><td><button type="button" className="pathIdButton" onClick={()=>{setSelectedId(c.synthetic_id); document.getElementById("pathway-console-anchor")?.scrollIntoView({behavior:"smooth",block:"start"});}}>{c.synthetic_id}</button></td><td>{c.demonstration_sector}</td><td>{c.age_band}</td><td>{c.chart_value_percent}%</td><td><span className={`pathStatus ${c.stage === "declined" ? "pathStatusDeclined" : ""}`}>{STAGE_NAMES[c.stage]}</span></td><td>{STEP_LABELS[c.furthest_step]}</td></tr>)}</tbody></table></div>
+          <tbody>{rows.map(c=><tr key={c.synthetic_id}><td><button type="button" className="pathIdButton" onClick={()=>{setSelectedId(c.synthetic_id); document.getElementById("pathway-console-anchor")?.scrollIntoView({behavior:"smooth",block:"start"});}}>{c.synthetic_id}</button></td><td>{c.demonstration_sector}</td><td>{c.age_band}</td><td>{formatPercent(c.chart_value_percent, 0)}</td><td><span className={`pathStatus ${c.stage === "declined" ? "pathStatusDeclined" : ""}`}>{STAGE_NAMES[c.stage]}</span></td><td>{STEP_LABELS[c.furthest_step]}</td></tr>)}</tbody></table></div>
         <p className="scope-note">{rows.length} of {result.cases.length} fictitious identifiers displayed. No personal data are included.</p>
       </section>
       <section className="panel methodology pathGuidance"><span className="eyebrow">EVIDENCE-ALIGNED EDUCATIONAL DESIGN</span><h2>What a real prevention service would need</h2>

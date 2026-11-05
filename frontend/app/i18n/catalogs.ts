@@ -216,6 +216,15 @@ export const fr: Record<string, string> = {
   "PREVIA Health AI · v0.8 · Research prototype · No medical records ingested by the web application · Not for clinical use.": "PREVIA Health AI · v0.8 · Prototype de recherche · Aucun dossier médical ingéré par l’application web · Non destiné à un usage clinique.",
   "Choose a fabricated identifier. Every button merely replays an allowed transition against the current deterministic scenario.": "Choisissez un identifiant fabriqué. Chaque bouton rejoue uniquement une transition autorisée dans le scénario déterministe actuel.",
   "Gap = maximum minus minimum fabricated review-stage rate across sectors with selected records. This does not measure equity of clinical care.": "Écart = taux maximal moins taux minimal d’atteinte de la revue fictive entre les secteurs contenant des enregistrements sélectionnés. Cela ne mesure pas l’équité des soins cliniques.",
+  "Sidecar": "Service auxiliaire", "SHAP model": "Modèle SHAP", "available": "disponible", "unavailable": "indisponible", "curated sources": "sources contrôlées",
+  "percentage points": "points de pourcentage",
+  "Additivity residual:": "Résidu d’additivité :", "Frozen model:": "Modèle figé :",
+  "Independent-cycle scores (2015–16):": "Scores du cycle indépendant (2015–2016) :", "No clinical validation.": "Aucune validation clinique.", "n/a": "n.d.",
+  "NHANES reference sex": "Sexe de référence NHANES", "Systolic blood pressure": "Pression artérielle systolique", "Waist circumference": "Tour de taille",
+  "Check the field values and try again.": "Vérifiez les valeurs des champs puis réessayez.", "Unable to contact the API.": "Impossible de contacter l’API.",
+  "Check that capacity does not exceed population size and that the country is supported.": "Vérifiez que la capacité ne dépasse pas la taille de la population et que le pays est pris en charge.",
+  "Unable to reach PREVIA API.": "Impossible de joindre l’API PREVIA.", "Explainability unavailable.": "Explicabilité indisponible.",
+  "Passed": "Réussi", "Failed": "Échec", "ready": "disponible",
 };
 
 export function translateLiteral(value: string, language: Language): string {

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8765";
 
@@ -68,6 +69,7 @@ function saveReport(report: Evidence) {
 }
 
 export default function EvidencePage() {
+  const { t, formatPercent } = useI18n();
   const [result, setResult] = useState<Evidence | null>(null);
   const [working, setWorking] = useState(true);
   const [error, setError] = useState("");
@@ -109,7 +111,7 @@ export default function EvidencePage() {
       <p>Research engineering only. No clinical calibration or prediction-performance claim.</p></div></div>
 
     {error && <section className="insightCard" role="alert"><h3>Unable to load scientific evidence</h3>
-      <p>{error}</p><p>Check FastAPI at <code>{API}</code>.</p>
+      <p>{t(error)}</p><p>Check FastAPI at <code>{API}</code>.</p>
       <button type="button" className="evidenceRefresh" onClick={() => void reload()}>Retry API request</button></section>}
 
     {!result && !error && <section className="insightCard"><h3>{working ? "Checking scientific sources…" : "No result available"}</h3></section>}
@@ -136,7 +138,7 @@ export default function EvidencePage() {
             <thead><tr><th>Age</th><th>Reference group</th><th>SBP</th><th>BMI</th><th>Before</th><th>Corrected</th></tr></thead>
             <tbody>{checks.corrections_v06.map((item, index) => <tr key={index}>
               <td>{item.age_start}–{item.age_start + 4}</td><td>{item.quadrant}</td><td>{item.sbp_band}</td>
-              <td>{item.bmi_band}</td><td>{item.was}%</td><td><b>{item.is}%</b></td>
+              <td>{item.bmi_band}</td><td>{formatPercent(item.was, 0)}</td><td><b>{formatPercent(item.is, 0)}</b></td>
             </tr>)}</tbody>
           </table></div>
           <p className="scope-note">MN = male non-smoker; MS = male smoker; FN = female non-smoker; FS = female smoker. These are chart-specific reference categories.</p>
@@ -154,7 +156,7 @@ export default function EvidencePage() {
             <div className="evidencePairs">
               <div><small>US adults aged 40–74 · unweighted</small><strong>{aggregate.adults_40_to_74_unweighted_n.toLocaleString("en-US")}</strong></div>
               <div><small>Complete eligibility inputs · unweighted</small><strong>{aggregate.complete_primary_prevention_inputs_n.toLocaleString("en-US")}</strong></div>
-              <div><small>Input completeness · unweighted</small><strong>{aggregate.complete_input_share_pct_unweighted?.toFixed(2) ?? "N/A"}%</strong></div>
+              <div><small>Input completeness · unweighted</small><strong>{aggregate.complete_input_share_pct_unweighted === null ? "N/A" : formatPercent(aggregate.complete_input_share_pct_unweighted)}</strong></div>
             </div>
             <h3>Core field completeness</h3>
             <div className="evidenceFieldList">{["sex_recorded", "bmi_usable", "systolic_bp_usable", "current_smoking_classifiable", "cvd_history_classifiable"].map(name => {

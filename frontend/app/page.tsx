@@ -1,5 +1,6 @@
 "use client";
 import { useState, type FormEvent } from "react";
+import { useI18n } from "./i18n/I18nProvider";
 
 type Result = {
   status: string;
@@ -26,6 +27,7 @@ const COUNTRIES = [
 ];
 
 export default function Home() {
+  const { t, formatPercent } = useI18n();
   const [age, setAge] = useState("52");
   const [sex, setSex] = useState("female");
   const [smoker, setSmoker] = useState("false");
@@ -96,10 +98,10 @@ export default function Home() {
         </div>
         </form></section>
         <aside className="panel output"><span className="eyebrow">STEP 02</span><h2>Assessment outcome</h2>
-          {error ? <div className="result error" role="alert">{error}</div> : result ? <div className="result" aria-live="polite">
-            <span className="status">{result.status.replaceAll("_", " ")}</span>
-            {result.risk_score_percent !== null ? <div className="riskmetric"><strong>{result.risk_score_percent}%</strong><div>WHO 2019 chart cell<br/><b>{result.risk_category}</b> reference category</div></div> : null}
-            <h3>{result.message}</h3>
+          {error ? <div className="result error" role="alert">{t(error)}</div> : result ? <div className="result" aria-live="polite">
+            <span className="status">{t(result.status.replaceAll("_", " "))}</span>
+            {result.risk_score_percent !== null ? <div className="riskmetric"><strong>{formatPercent(result.risk_score_percent, 0)}</strong><div>WHO 2019 chart cell<br/><b>{result.risk_category}</b> reference category</div></div> : null}
+            <h3>{t(result.message)}</h3>
             {result.risk_score_percent !== null && result.region ? <div className="riskmeta">
               <p><b>Region:</b> {result.region}</p><p><b>Age band:</b> {result.age_band}</p>
               <p><b>SBP band:</b> {result.bp_band} mmHg</p><p><b>BMI band:</b> {result.bmi_band} kg/m²</p>

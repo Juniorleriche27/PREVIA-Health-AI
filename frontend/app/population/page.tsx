@@ -1,5 +1,6 @@
 "use client";
 import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8765";
 const SOURCE = "https://www.who.int/docs/default-source/cardiovascular-diseases/western-sub-saharan-africa.pdf";
@@ -16,14 +17,16 @@ type ScenarioResult = {
   sex_reference_distribution:CategoryCount[]; demonstration_queue:ExampleProfile[]; methodology:string[];
 };
 function BarGroup({title,rows,scheme="teal"}:{title:string;rows:CategoryCount[];scheme?:"teal"|"risk"}) {
+  const { formatPercent } = useI18n();
   const max = Math.max(1, ...rows.map(r=>r.count));
   return <section className="insightCard"><h3>{title}</h3><div className="barstack">{rows.map((row,i)=><div className="barline" key={row.category}>
     <span className="barlabel">{row.category}</span><div className="bartrack"><div className="barfill" style={{width:`${row.count / max * 100}%`,background:scheme==="risk"?BAND_COLORS[i]:"#117987"}}/></div>
-    <span className="barvalue">{row.count} <small>({row.percentage}%)</small></span>
+    <span className="barvalue">{row.count} <small>({formatPercent(row.percentage, 1)})</small></span>
   </div>)}</div></section>;
 }
 
 export default function PopulationPage(){
+ const { t, formatPercent } = useI18n();
  const [country,setCountry]=useState("Togo");
  const [cohortSize,setCohortSize]=useState(240);
  const [capacity,setCapacity]=useState(45);
@@ -56,17 +59,17 @@ export default function PopulationPage(){
   <label>Reproducible random seed<input type="number" min={0} max={1000000} value={seed} onChange={e=>setSeed(Number(e.target.value))} required/></label>
   <button type="submit" disabled={loading}>{loading?"Running simulation…":"Run population simulation"}<span>→</span></button>
   </form><p className="scope-note">Changing the country within this WHO region changes the reference label, not the synthetic cohort. Real geographic differences are not modeled.</p></section>
-  <div className="resultArea" aria-live="polite">{error?<div className="panel result error" role="alert">{error}<p>Verify FastAPI is running at {API}.</p></div>:!result?<section className="panel"><h2>{loading?"Preparing synthetic population…":"No results yet"}</h2></section>:<>
+  <div className="resultArea" aria-live="polite">{error?<div className="panel result error" role="alert">{t(error)}<p>Verify FastAPI is running at {API}.</p></div>:!result?<section className="panel"><h2>{loading?"Preparing synthetic population…":"No results yet"}</h2></section>:<>
    <div className="metricGrid"><div className="metricTile"><span>Synthetic population</span><strong>{result.cohort_size}</strong><small>Artificial records</small></div>
    <div className="metricTile"><span>Demo screening slots</span><strong>{result.selected_for_demo}</strong><small>Capacity for this scenario</small></div>
-   <div className="metricTile"><span>Reference values ≥10%</span><strong>{result.higher_chart_category_count}</strong><small>{result.higher_chart_category_share}% of simulated profiles</small></div>
+   <div className="metricTile"><span>Reference values ≥10%</span><strong>{result.higher_chart_category_count}</strong><small>{formatPercent(result.higher_chart_category_share, 1)} of simulated profiles</small></div>
    <div className="metricTile"><span>Not selected in scenario</span><strong>{result.unselected_for_demo}</strong><small>Not selected in this example</small></div></div>
    <div className="chartGrid"><BarGroup title="WHO risk categories" rows={result.risk_distribution} scheme="risk"/><BarGroup title="Synthetic cohort by age" rows={result.age_distribution}/></div>
   </>}</div></div>
   {result&&<><div className="chartGrid lowerCharts"><BarGroup title="Demonstration sectors" rows={result.area_distribution}/><BarGroup title="Chart reference sex" rows={result.sex_reference_distribution}/></div>
   <section className="panel queuePanel"><div className="panelhead"><div><span className="eyebrow">ILLUSTRATIVE SCENARIO</span><h2>Example screening-capacity allocation</h2></div><span className="stepchip">Not clinical triage</span></div>
    <p className="scope-note">For demonstration only, the highest chart-bin values are listed first. These are fictitious profiles, not people to contact or medical appointments to schedule.</p>
-   <div className="tableScroll"><table className="popTable"><thead><tr><th>Synthetic ID</th><th>Demo sector</th><th>Age</th><th>Chart sex</th><th>Smoker</th><th>SBP</th><th>BMI</th><th>WHO cell</th></tr></thead><tbody>{result.demonstration_queue.map(p=><tr key={p.synthetic_id}><td><b>{p.synthetic_id}</b></td><td>{p.area}</td><td>{p.age_band}</td><td>{p.sex_reference}</td><td>{p.current_smoker?"Yes":"No"}</td><td>{p.systolic_bp}</td><td>{p.bmi}</td><td><span className="riskPill">{p.who_chart_value_percent}%</span></td></tr>)}</tbody></table></div>
+   <div className="tableScroll"><table className="popTable"><thead><tr><th>Synthetic ID</th><th>Demo sector</th><th>Age</th><th>Chart sex</th><th>Smoker</th><th>SBP</th><th>BMI</th><th>WHO cell</th></tr></thead><tbody>{result.demonstration_queue.map(p=><tr key={p.synthetic_id}><td><b>{p.synthetic_id}</b></td><td>{p.area}</td><td>{p.age_band}</td><td>{p.sex_reference}</td><td>{p.current_smoker?"Yes":"No"}</td><td>{p.systolic_bp}</td><td>{p.bmi}</td><td><span className="riskPill">{formatPercent(p.who_chart_value_percent, 0)}</span></td></tr>)}</tbody></table></div>
   </section>
   <section className="panel methodology"><span className="eyebrow">METHOD & TRANSPARENCY</span><h2>What the demonstration does—and does not—show</h2><ul>{result.methodology.map(s=><li key={s}>{s}</li>)}</ul><a href={result.source_url||SOURCE} target="_blank" rel="noreferrer">Read the original WHO 2019 regional chart ↗</a></section></>}
   <footer>PREVIA Health AI · Research prototype · Synthetic data only · Not for clinical use</footer>

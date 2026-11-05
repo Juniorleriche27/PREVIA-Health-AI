@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8765";
 const COUNTRIES = [
@@ -47,17 +48,18 @@ const NAMES: Record<StrategyKey, string> = {
   seeded_random: "Seeded random baseline",
 };
 
-const pretty = (value: number | null) => value === null ? "N/A" : `${value.toFixed(2)}%`;
-
 function Tile({ label, value, note }: { label: string; value: string; note: string }) {
   return <div className="metricTile"><span>{label}</span><strong>{value}</strong><small>{note}</small></div>;
 }
 function RangeCell({ value }: { value: Range }) {
+  const { formatNumber } = useI18n();
   return <span title="Minimum · median · maximum over distinct synthetic seeds" className="rangeCell">
-    <b>{value.median.toFixed(2)}</b><small>[{value.minimum.toFixed(2)} – {value.maximum.toFixed(2)}]</small>
+    <b>{formatNumber(value.median, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</b><small>[{formatNumber(value.minimum, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} – {formatNumber(value.maximum, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}]</small>
   </span>;
 }
 function Coverage({ title, rows }: { title: string; rows: Group[] }) {
+  const { formatPercent } = useI18n();
+  const pretty = (value: number | null) => value === null ? "N/A" : formatPercent(value);
   return <section className="insightCard"><h3>{title}</h3>
     <div className="barstack">
       {rows.map(group => <div className="auditGroup" key={group.label}>
@@ -74,6 +76,7 @@ function Coverage({ title, rows }: { title: string; rows: Group[] }) {
 }
 
 export default function EvaluationPage() {
+  const { t, formatPercent } = useI18n();
   const [country, setCountry] = useState("Togo");
   const [size, setSize] = useState(240);
   const [capacity, setCapacity] = useState(45);
@@ -155,7 +158,7 @@ export default function EvaluationPage() {
         <p className="scope-note">The same cohort is shared by all three methods for a given seed. Repeated seeds create new fictitious cohorts; ranges are not population confidence intervals.</p>
       </section>
       <div className="resultArea" aria-live="polite">
-        {error ? <div className="panel result error" role="alert"><b>Audit failed</b><p>{error}</p><p>Check FastAPI on port 8765 and frontend API setting {API}.</p></div>
+        {error ? <div className="panel result error" role="alert"><b>Audit failed</b><p>{t(error)}</p><p>Check FastAPI on port 8765 and frontend API setting {API}.</p></div>
           : !result ? <section className="panel"><h2>{loading ? "Evaluating simulation…" : "No audit results"}</h2></section>
             : <>
               <div className="metricGrid">
@@ -201,7 +204,7 @@ export default function EvaluationPage() {
         <div className="tableScroll"><table className="popTable"><thead><tr>
           <th>Slots</th><th>% of cohort</th><th>Highest chart first</th><th>Balanced sectors</th><th>Random baseline</th>
         </tr></thead><tbody>{result.capacity_sensitivity.map(p => <tr key={p.slots}>
-          <td><b>{p.slots}</b></td><td>{p.share_of_cohort_pct}%</td><td>{p.chart_first_high_selected}/{p.higher_reference_total}</td>
+          <td><b>{p.slots}</b></td><td>{formatPercent(p.share_of_cohort_pct, 2)}</td><td>{p.chart_first_high_selected}/{p.higher_reference_total}</td>
           <td>{p.sector_balanced_high_selected}/{p.higher_reference_total}</td><td>{p.random_high_selected}/{p.higher_reference_total}</td>
         </tr>)}</tbody></table></div>
       </section>

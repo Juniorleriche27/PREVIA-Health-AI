@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useState, type FormEvent } from "react";
+import { useI18n } from "../i18n/I18nProvider";
 
 const API = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8765";
 const COUNTRIES = [
@@ -37,18 +38,20 @@ function Metric({ label, value, detail }: { label: string; value: string; detail
 }
 
 function RateBars({ title, rows }: { title: string; rows: SelectionRow[] }) {
+  const { formatPercent } = useI18n();
   return <section className="insightCard"><h3>{title}</h3><div className="barstack">
     {rows.map(row => <div className="barline" key={row.group}>
       <span className="barlabel">{row.group}</span>
       <div className="bartrack" title={`${row.selected_count}/${row.population_count} selected`}>
         <div className="barfill" style={{ width: `${row.selection_rate_pct}%`, background: "#0d7988" }} />
       </div>
-      <span className="barvalue">{row.selection_rate_pct}%</span>
+      <span className="barvalue">{formatPercent(row.selection_rate_pct, 2)}</span>
     </div>)}
   </div><p className="scope-note">Bar length shows the share of each synthetic subgroup selected, not disease prevalence.</p></section>;
 }
 
 export default function PrioritizationPage() {
+  const { t, formatPercent } = useI18n();
   const [country, setCountry] = useState("Togo");
   const [size, setSize] = useState(240);
   const [capacity, setCapacity] = useState(45);
@@ -116,14 +119,14 @@ export default function PrioritizationPage() {
         <p className="scope-note">The country changes the reference-region label, not the synthetic population. All three strategies run on identical records.</p>
       </section>
       <div className="resultArea" aria-live="polite">
-        {error ? <div className="panel result error" role="alert"><b>Comparison failed</b><p>{error}</p><p>Confirm FastAPI is running and the frontend API address is {API}.</p></div>
+        {error ? <div className="panel result error" role="alert"><b>Comparison failed</b><p>{t(error)}</p><p>Confirm FastAPI is running and the frontend API address is {API}.</p></div>
           : !result ? <section className="panel"><h2>{loading ? "Comparing artificial scenarios…" : "No scenario yet"}</h2></section>
             : <>
               <div className="metricGrid">
                 <Metric label="Synthetic profiles" value={String(result.cohort_size)} detail="Artificial cohort" />
                 <Metric label="Slots per strategy" value={String(result.outreach_capacity)} detail="Same capacity for every method" />
                 <Metric label="WHO cells ≥10%" value={String(result.higher_reference_in_cohort)} detail="Synthetic comparison category" />
-                <Metric label="Capacity used" value={`${Math.round(100 * result.outreach_capacity / result.cohort_size)}%`} detail="Slots ÷ cohort size" />
+                <Metric label="Capacity used" value={formatPercent(100 * result.outreach_capacity / result.cohort_size, 0)} detail="Slots ÷ cohort size" />
               </div>
               <section className="compareIntro"><h2>Side-by-side comparison</h2><p>Choose a strategy to examine its subgroup selection rates and synthetic IDs. No approach is automatically recommended.</p></section>
               <div className="strategyGrid" aria-label="Strategies">
@@ -133,8 +136,8 @@ export default function PrioritizationPage() {
                   <span className="strategyIndicator">{chosen === strategy.key ? "SELECTED FOR INSPECTION" : "INSPECT STRATEGY"}</span>
                   <strong>{strategy.label}</strong><small>{strategy.explanation}</small>
                   <div className="strategyFacts">
-                    <div><span>Chart ≥10% captured</span><b>{strategy.higher_reference_capture_pct}%</b></div>
-                    <div><span>Of selected, chart ≥10%</span><b>{strategy.higher_reference_yield_pct}%</b></div>
+                    <div><span>Chart ≥10% captured</span><b>{formatPercent(strategy.higher_reference_capture_pct, 2)}</b></div>
+                    <div><span>Of selected, chart ≥10%</span><b>{formatPercent(strategy.higher_reference_yield_pct, 2)}</b></div>
                     <div><span>Sector selection gap</span><b>{strategy.sector_selection_gap_pp} pp</b></div>
                     <div><span>Reference-sex gap</span><b>{strategy.sex_reference_selection_gap_pp} pp</b></div>
                   </div>
@@ -150,7 +153,7 @@ export default function PrioritizationPage() {
         <div className="panelhead"><div><span className="eyebrow">STRATEGY EXPLORER</span><h2>{active.label}</h2></div><span className="stepchip">Not clinical triage</span></div>
         <div className="priorityStats">
           <div><span>Higher-chart-category profiles selected</span><strong>{active.higher_reference_selected} / {result.higher_reference_in_cohort}</strong></div>
-          <div><span>Average chart-cell value among selected</span><strong>{active.average_chart_value_pct}%</strong></div>
+          <div><span>Average chart-cell value among selected</span><strong>{formatPercent(active.average_chart_value_pct, 2)}</strong></div>
           <div><span>Selection rate gap across demo sectors</span><strong>{active.sector_selection_gap_pp} pp</strong></div>
         </div>
         <div className="chartGrid priorityCharts">
@@ -166,7 +169,7 @@ export default function PrioritizationPage() {
         </tr></thead><tbody>{active.example_profiles.map(p => <tr key={p.synthetic_id}>
           <td><b>{p.synthetic_id}</b></td><td>{p.area}</td><td>{p.age_band}</td><td>{p.sex_reference}</td>
           <td>{p.current_smoker ? "Yes" : "No"}</td><td>{p.systolic_bp}</td><td>{p.bmi}</td>
-          <td><span className="riskPill">{p.who_chart_value_percent}%</span></td>
+          <td><span className="riskPill">{formatPercent(p.who_chart_value_percent, 0)}</span></td>
         </tr>)}</tbody></table></div>
       </section>
       <section className="panel methodology priorityLimits"><span className="eyebrow">DEFINITIONS & GUARDRAILS</span><h2>What these indicators mean</h2>

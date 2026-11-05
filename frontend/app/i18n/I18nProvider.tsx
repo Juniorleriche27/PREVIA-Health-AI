@@ -4,7 +4,13 @@ import { Language, translateLiteral } from "./catalogs";
 const STORAGE_KEY = "previa-language";
 const textOriginals = new WeakMap<Text, string>();
 const attributeOriginals = new WeakMap<Element, Map<string, string>>();
-type I18nValue = { language: Language; setLanguage: (value: Language) => void; t: (english: string) => string; formatNumber: (value: number, options?: Intl.NumberFormatOptions) => string };
+type I18nValue = {
+  language: Language;
+  setLanguage: (value: Language) => void;
+  t: (english: string) => string;
+  formatNumber: (value: number, options?: Intl.NumberFormatOptions) => string;
+  formatPercent: (value: number, fractionDigits?: number) => string;
+};
 const Context = createContext<I18nValue | null>(null);
 export function I18nProvider({ children }: { children: React.ReactNode }) {
   const [language, setCurrent] = useState<Language>("en");
@@ -28,7 +34,10 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
         const raw = textOriginals.get(node) ?? node.data;
         textOriginals.set(node, raw);
         const match = raw.match(/^(\s*)([\s\S]*?)(\s*)$/);
-        if (match) node.data = `${match[1]}${translateLiteral(match[2], language)}${match[3]}`;
+        if (match) {
+          const next = `${match[1]}${translateLiteral(match[2], language)}${match[3]}`;
+          if (node.data !== next) node.data = next;
+        }
       }
       const elements = root.nodeType === Node.ELEMENT_NODE ? [root as Element, ...(root as Element).querySelectorAll("*")] : [];
       for (const element of elements) for (const name of translatedAttributes) if (element.hasAttribute(name)) {
@@ -49,7 +58,22 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     observer.observe(document.body, { subtree: true, childList: true });
     return () => observer.disconnect();
   }, [language]);
-  const value = useMemo(() => ({ language, setLanguage, t, formatNumber: (number: number, options?: Intl.NumberFormatOptions) => new Intl.NumberFormat(language === "fr" ? "fr-FR" : "en-US", options).format(number) }), [language, setLanguage, t]);
+  const value = useMemo(() => {
+    const locale = language === "fr" ? "fr-FR" : "en-US";
+    return {
+      language,
+      setLanguage,
+      t,
+      formatNumber: (number: number, options?: Intl.NumberFormatOptions) => new Intl.NumberFormat(locale, options).format(number),
+      formatPercent: (number: number, fractionDigits = 2) => {
+        const formatted = new Intl.NumberFormat(locale, {
+          minimumFractionDigits: fractionDigits,
+          maximumFractionDigits: fractionDigits,
+        }).format(number);
+        return language === "fr" ? `${formatted}\u00a0%` : `${formatted}%`;
+      },
+    };
+  }, [language, setLanguage, t]);
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 export function useI18n() { const value = useContext(Context); if (!value) throw new Error("useI18n must be used inside I18nProvider"); return value; }
