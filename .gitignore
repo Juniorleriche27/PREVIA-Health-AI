@@ -39,3 +39,4 @@ providers.local.json
 # Editor/backup and generated runtime files
 *.bak
 *.log
+*.tsbuildinfo
