@@ -49,6 +49,15 @@ def _domain_matches(question: str, passage: dict[str, Any]) -> bool:
 def _safe_grounded_answer(candidate: str, passages: list[dict[str, Any]]) -> bool:
     valid = {p["id"] for p in passages}; cited = set(re.findall(r"\[([A-Z0-9-]{3,45})\]", candidate)); return bool(cited) and cited.issubset(valid)
 
+def _canonicalize_citations(candidate: str, passages: list[dict[str, Any]]) -> str:
+    """Normalize citation typography only for IDs retrieved from the trusted corpus."""
+    for source_id in sorted((p["id"] for p in passages), key=len, reverse=True):
+        escaped = re.escape(source_id)
+        for opening, closing in (("[", "]"), ("【", "】"), ("［", "］"), ("(", ")")):
+            candidate = candidate.replace(f"{opening}{source_id}{closing}", f"[{source_id}]")
+        candidate = re.sub(rf"(?<![A-Z0-9\[-]){escaped}(?![A-Z0-9\]-])", f"[{source_id}]", candidate)
+    return candidate
+
 def public_source(passage: dict[str, Any]) -> dict[str, Any]: return {k: passage[k] for k in ("id","publisher","title","url","similarity")}
 
 def answer(path: Path, question: str, provider_id: str = "extractive", model_id: str | None = None, history: list[dict[str, str]] | None = None, language: str = "fr") -> dict[str, Any]:
@@ -70,6 +79,7 @@ def answer(path: Path, question: str, provider_id: str = "extractive", model_id:
         prompt = (f"SOURCES (les seules autorisées) :\n{excerpts}\n\nQUESTION : {question}\nRÉPONSE (avec IDs cités) :" if language == "fr" else f"SOURCES (the only authorized sources):\n{excerpts}\n\nQUESTION: {question}\nANSWER (with cited IDs):")
         try:
             result, effective_model = generate(provider_id, model_id, system, prompt, history)
+            result = _canonicalize_citations(result, passages)
             if _safe_grounded_answer(result, passages): generated = result
             else: error = "Réponse sans citations valides ; retour au mode documentaire." if language == "fr" else "Answer lacks valid citations; returning to documentary mode."
         except ProviderError: error = "Le fournisseur sélectionné est indisponible ; retour au mode documentaire." if language == "fr" else "The selected provider is unavailable; returning to documentary mode."

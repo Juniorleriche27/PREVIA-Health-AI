@@ -205,6 +205,19 @@ def test_llm_mode_only_when_generation_has_verified_citations(monkeypatch):
     assert result["provider"] == "config_test" and result["model"] == "test-model"
 
 
+def test_llm_normalizes_allowlisted_citation_variants(monkeypatch):
+    monkeypatch.setattr(rag, "generate", lambda *a, **kw: ("Réponse documentée (CDC-A1C-2024)", "test-model"))
+    result = rag.answer(CORPUS, "Quelle est la plage de l'HbA1c pour le prédiabète ?", provider_id="config_test")
+    assert result["mode"] == "llm_grounded"
+    assert "[CDC-A1C-2024]" in result["answer"]
+
+
+def test_llm_does_not_accept_unretrieved_citation(monkeypatch):
+    monkeypatch.setattr(rag, "generate", lambda *a, **kw: ("Réponse documentée (FAKE-ID)", "test-model"))
+    result = rag.answer(CORPUS, "Quelle est la plage de l'HbA1c pour le prédiabète ?", provider_id="config_test")
+    assert result["mode"] == "retrieval_extractif"
+
+
 def test_unsupported_citation_rejected(monkeypatch):
     monkeypatch.setattr(rag, "generate", lambda *a, **kw: ("Mauvaise source [FAKE-ID]", "test-model"))
     result = rag.answer(CORPUS, "Quelle est la plage de l'HbA1c pour le prédiabète ?", provider_id="config_test")
