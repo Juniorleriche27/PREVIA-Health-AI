@@ -1018,12 +1018,113 @@
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  width: 330px;
+  width: 350px;
   max-width: calc(100vw - 40px);
   background: #ffffff;
   border: 1px solid #cfe0e6;
-  border-radius: 12px;
-  box-shadow: 0 14px 34px -4px rgba(12, 74, 96, 0.16), 0 4px 12px -2px rgba(12, 74, 96, 0.06);
-  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 16px 38px -4px rgba(12, 74, 96, 0.16), 0 4px 14px -2px rgba(12, 74, 96, 0.08);
+  padding: 16px;
   z-index: 60;
+  animation: fadeInDown 0.16s ease-out;
+}
+
+.dropdownHeader {
+  margin-bottom: 12px;
+}
+
+.dropdownHeader b {
+  font-size: 13px;
+  color: #163647;
+  display: block;
+}
+
+.dropdownHeader p {
+  margin: 3px 0 0;
+  font-size: 11px;
+  color: #64818f;
+  line-height: 1.4;
+}
+
+.modeOptionList {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.modeOptionCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid #dbe6ea;
+  border-radius: 10px;
+  background: #f8fafb;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.modeOptionCard:hover {
+  background: #f0f7f8;
+  border-color: #a8cfd6;
+}
+
+.modeActive {
+  background: #ebf6f6 !important;
+  border-color: #087584 !important;
+  box-shadow: 0 0 0 1px #087584;
+}
+
+.modeOptionCard input[type="radio"] {
+  margin-top: 3px;
+  accent-color: #087584;
+  cursor: pointer;
+}
+
+.modeOptionText {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.modeOptionTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.modeOptionTitle strong {
+  font-size: 12px;
+  color: #173b4c;
+}
+
+.modeBadge {
+  font-size: 9px;
+  font-weight: 750;
+  background: #087584;
+  color: #ffffff;
+  padding: 2px 7px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.modeBadgeNeutral {
+  font-size: 9px;
+  font-weight: 750;
+  background: #e2ebef;
+  color: #385d71;
+  padding: 2px 7px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.modeOptionText small {
+  font-size: 10.5px;
+  color: #5d7887;
+  line-height: 1.35;
 }
