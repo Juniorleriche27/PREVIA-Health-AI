@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 480" width="100%" height="auto">
+<style>
+  .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #112d3d; }
+  .sub { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12.5px; fill: #526f80; }
+  .axis { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; fill: #657f8d; }
+  .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; }
+  .grid { stroke: #e3edf2; stroke-width: 1; stroke-dasharray: 3 3; }
+</style>
+<rect width="940" height="480" rx="14" fill="#ffffff" stroke="#d5e3ea" stroke-width="1"/>
+<text x="36" y="40" class="title">PREVIA Health AI — Structure des coûts opérationnels et d&#x27;échelle</text>
+<text x="36" y="62" class="sub">Ventilation des postes de dépenses : du déploiement pilote (12k€) à l&#x27;exploitation centrale (Année 2)</text>
+<text x="402" y="142" class="label" font-size="11.5px" text-anchor="end" fill="#1e3a47">Support terrain, formation &amp; conduite du changement</text>
+<rect x="420" y="120" width="460" height="36" rx="6" fill="#f1f5f9" />
+<rect x="420" y="120" width="361.09999999999997" height="36" rx="6" fill="#0284c7" />
+<text x="793.0999999999999" y="143" class="label" font-size="12px" fill="#0284c7">31.4 %</text>
+<text x="402" y="204" class="label" font-size="11.5px" text-anchor="end" fill="#1e3a47">Maintenance DevOps, souveraineté &amp; sécurité</text>
+<rect x="420" y="182" width="460" height="36" rx="6" fill="#f1f5f9" />
+<rect x="420" y="182" width="295.54999999999995" height="36" rx="6" fill="#087584" />
+<text x="727.55" y="205" class="label" font-size="12px" fill="#087584">25.7 %</text>
+<text x="402" y="266" class="label" font-size="11.5px" text-anchor="end" fill="#1e3a47">Audit indépendant, gouvernance &amp; rapport conjoint</text>
+<rect x="420" y="244" width="460" height="36" rx="6" fill="#f1f5f9" />
+<rect x="420" y="244" width="246.09999999999997" height="36" rx="6" fill="#0d9488" />
+<text x="678.0999999999999" y="267" class="label" font-size="12px" fill="#0d9488">21.4 %</text>
+<text x="402" y="328" class="label" font-size="11.5px" text-anchor="end" fill="#1e3a47">Infrastructure cloud, serveurs souverains &amp; backups</text>
+<rect x="420" y="306" width="460" height="36" rx="6" fill="#f1f5f9" />
+<rect x="420" y="306" width="197.79999999999998" height="36" rx="6" fill="#64748b" />
+<text x="629.8" y="329" class="label" font-size="12px" fill="#64748b">17.2 %</text>
+<text x="402" y="390" class="label" font-size="11.5px" text-anchor="end" fill="#1e3a47">Consommation tokens IA (Knowlia multi-cloud)</text>
+<rect x="420" y="368" width="460" height="36" rx="6" fill="#f1f5f9" />
+<rect x="420" y="368" width="49.449999999999996" height="36" rx="6" fill="#f59e0b" />
+<text x="481.45" y="391" class="label" font-size="12px" fill="#f59e0b">4.3 %</text>
+<text x="40" y="455" class="axis" fill="#64748b">Calculs fondés sur les coûts d'hébergement observés (Netcup/Vercel) et sur le protocole pilote de 6 mois pour 1 000 profils.</text>
+</svg>

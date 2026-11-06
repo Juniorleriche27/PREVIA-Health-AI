@@ -1,0 +1,6 @@
+cost_category,pilot_share_pct,year2_share_pct,nature,description
+Support terrain & formation soignants,31.4,28.5,Semi-variable,"Guides d'utilisation, ateliers de formation des infirmiers, astreinte téléphonique"
+"DevOps, maintenance corrective & sécurité",25.7,34.0,Fixe / Évolutif,"Surveillance des conteneurs Docker, mises à jour de sécurité, correctifs"
+Audit indépendant & rapport conjoint,21.4,12.0,Forfaitaire,"Vérification des registres, contrôle éthique, rapport de synthèse pour bailleurs"
+Infrastructure cloud souveraine & backups,17.2,19.5,Fixe,"Serveur VPS Netcup (194.59.205.73), Vercel Pro, sauvegardes chiffrées distantes"
+Consommation API tokens IA (Knowlia),4.3,6.0,Strictement variable,Requêtes de synthèse documentaire RAG (0.0015 € / requête ; calculs OMS = 0.00 €)

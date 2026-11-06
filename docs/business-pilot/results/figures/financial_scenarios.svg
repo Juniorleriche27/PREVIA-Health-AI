@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" width="100%" height="auto">
+<style>
+  .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #112d3d; }
+  .sub { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12.5px; fill: #526f80; }
+  .axis { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; fill: #657f8d; }
+  .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; }
+  .grid { stroke: #e3edf2; stroke-width: 1; stroke-dasharray: 3 3; }
+</style>
+<rect width="980" height="520" rx="14" fill="#ffffff" stroke="#d5e3ea" stroke-width="1"/>
+<text x="36" y="40" class="title">PREVIA Health AI — Trajectoire financière prévisionnelle (3 ans)</text>
+<text x="36" y="62" class="sub">Projection comparée du chiffre d&#x27;affaires et de la marge brute selon 3 scénarios réalistes (en k€)</text>
+<line x1="55" y1="440.0" x2="935" y2="440.0" class="grid" />
+<text x="47" y="444.0" class="axis" text-anchor="end">0k€</text>
+<line x1="55" y1="382.85714285714283" x2="935" y2="382.85714285714283" class="grid" />
+<text x="47" y="386.85714285714283" class="axis" text-anchor="end">50k€</text>
+<line x1="55" y1="325.7142857142857" x2="935" y2="325.7142857142857" class="grid" />
+<text x="47" y="329.7142857142857" class="axis" text-anchor="end">100k€</text>
+<line x1="55" y1="268.57142857142856" x2="935" y2="268.57142857142856" class="grid" />
+<text x="47" y="272.57142857142856" class="axis" text-anchor="end">150k€</text>
+<line x1="55" y1="211.42857142857142" x2="935" y2="211.42857142857142" class="grid" />
+<text x="47" y="215.42857142857142" class="axis" text-anchor="end">200k€</text>
+<line x1="55" y1="154.28571428571428" x2="935" y2="154.28571428571428" class="grid" />
+<text x="47" y="158.28571428571428" class="axis" text-anchor="end">250k€</text>
+<rect x="65" y="100" width="270" height="365" rx="10" fill="#f8fafc" stroke="#e8eff3" stroke-width="1"/>
+<text x="200.0" y="122" class="label" fill="#173b4c" font-size="12px" text-anchor="middle">Scénario Prudent</text>
+<rect x="90" y="426.2857142857143" width="20" height="13.714285714285715" rx="4" fill="#087584" />
+<rect x="113" y="436.16508571428574" width="20" height="3.834914285714286" rx="4" fill="#10b981" />
+<text x="100.0" y="421.2857142857143" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">12k</text>
+<text x="123.0" y="431.16508571428574" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">3k</text>
+<text x="111" y="458" class="axis" font-weight="600" text-anchor="middle">A1</text>
+<rect x="165" y="417.7142857142857" width="20" height="22.285714285714285" rx="4" fill="#087584" />
+<rect x="188" y="432.74037714285714" width="20" height="7.2596228571428565" rx="4" fill="#10b981" />
+<text x="175.0" y="412.7142857142857" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">20k</text>
+<text x="198.0" y="427.74037714285714" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">6k</text>
+<text x="186" y="458" class="axis" font-weight="600" text-anchor="middle">A2</text>
+<rect x="240" y="404.0" width="20" height="36.0" rx="4" fill="#087584" />
+<rect x="263" y="424.0377142857143" width="20" height="15.962285714285716" rx="4" fill="#10b981" />
+<text x="250.0" y="399.0" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">32k</text>
+<text x="273.0" y="419.0377142857143" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">14k</text>
+<text x="261" y="458" class="axis" font-weight="600" text-anchor="middle">A3</text>
+<rect x="360" y="100" width="270" height="365" rx="10" fill="#f8fafc" stroke="#e8eff3" stroke-width="1"/>
+<text x="495.0" y="122" class="label" fill="#173b4c" font-size="12px" text-anchor="middle">Scénario Central (Base Case)</text>
+<rect x="385" y="420.57142857142856" width="20" height="19.428571428571427" rx="4" fill="#087584" />
+<rect x="408" y="433.88194285714286" width="20" height="6.118057142857143" rx="4" fill="#10b981" />
+<text x="395.0" y="415.57142857142856" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">17k</text>
+<text x="418.0" y="428.88194285714286" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">5k</text>
+<text x="406" y="458" class="axis" font-weight="600" text-anchor="middle">A1</text>
+<rect x="460" y="385.1428571428571" width="20" height="54.85714285714286" rx="4" fill="#087584" />
+<rect x="483" y="410.41742857142856" width="20" height="29.582571428571427" rx="4" fill="#10b981" />
+<text x="470.0" y="380.1428571428571" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">48k</text>
+<text x="493.0" y="405.41742857142856" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">26k</text>
+<text x="481" y="458" class="axis" font-weight="600" text-anchor="middle">A2</text>
+<rect x="535" y="300.2857142857143" width="20" height="139.71428571428572" rx="4" fill="#087584" />
+<rect x="558" y="357.812" width="20" height="82.188" rx="4" fill="#10b981" />
+<text x="545.0" y="295.2857142857143" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">122k</text>
+<text x="568.0" y="352.812" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">72k</text>
+<text x="556" y="458" class="axis" font-weight="600" text-anchor="middle">A3</text>
+<rect x="655" y="100" width="270" height="365" rx="10" fill="#f8fafc" stroke="#e8eff3" stroke-width="1"/>
+<text x="790.0" y="122" class="label" fill="#173b4c" font-size="12px" text-anchor="middle">Scénario Ambitieux</text>
+<rect x="680" y="401.14285714285717" width="20" height="38.857142857142854" rx="4" fill="#087584" />
+<rect x="703" y="424.35360000000003" width="20" height="15.6464" rx="4" fill="#10b981" />
+<text x="690.0" y="396.14285714285717" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">34k</text>
+<text x="713.0" y="419.35360000000003" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">14k</text>
+<text x="701" y="458" class="axis" font-weight="600" text-anchor="middle">A1</text>
+<rect x="755" y="328.57142857142856" width="20" height="111.42857142857142" rx="4" fill="#087584" />
+<rect x="778" y="375.71285714285716" width="20" height="64.28714285714285" rx="4" fill="#10b981" />
+<text x="765.0" y="323.57142857142856" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">98k</text>
+<text x="788.0" y="370.71285714285716" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">56k</text>
+<text x="776" y="458" class="axis" font-weight="600" text-anchor="middle">A2</text>
+<rect x="830" y="167.14285714285717" width="20" height="272.85714285714283" rx="4" fill="#087584" />
+<rect x="853" y="269.6702857142857" width="20" height="170.3297142857143" rx="4" fill="#10b981" />
+<text x="840.0" y="162.14285714285717" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">239k</text>
+<text x="863.0" y="264.6702857142857" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">149k</text>
+<text x="851" y="458" class="axis" font-weight="600" text-anchor="middle">A3</text>
+<rect x="340" y="490" width="14" height="14" rx="3" fill="#087584"/>
+<text x="360" y="501" class="axis" fill="#203a49">Chiffre d'affaires total (€)</text>
+<rect x="530" y="490" width="14" height="14" rx="3" fill="#10b981"/>
+<text x="550" y="501" class="axis" fill="#203a49">Marge brute indicative (€)</text>
+</svg>

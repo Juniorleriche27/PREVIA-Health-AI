@@ -1,0 +1,57 @@
+{
+  "analysis": "PREVIA Health AI — Commercial Viability & Pilot Operational Model",
+  "schema_version": "1.0.0",
+  "competition": "Future Health Digital Innovation Challenge 2026",
+  "observed_baseline": {
+    "vps_netcup_monthly": 25.0,
+    "vercel_frontend_monthly": 20.0,
+    "domain_dns_annual": 24.0,
+    "token_rag_query_eur": 0.0015,
+    "extractive_query_eur": 0.0
+  },
+  "indicative_pricing": {
+    "pilot_package_eur": 12000.0,
+    "campaign_base_eur": 2500.0,
+    "campaign_extra_profile_eur": 0.3,
+    "annual_license_eur": 15000.0
+  },
+  "breakeven_analysis": {
+    "fixed_annual_overhead_eur": 3944.0,
+    "campaigns_to_breakeven": 3.9,
+    "licenses_to_breakeven": 0.36
+  },
+  "business_boundaries": [
+    "All scenario projections are model-based planning estimates and do not represent signed customer contracts.",
+    "Indicative pricing reflects fair-market healthtech benchmarks and must be negotiated per institutional pilot.",
+    "Infrastructure costs reflect observed server and SaaS hosting costs as of November 2026.",
+    "Marginal token costs are bounded by PREVIA's deterministic local WHO lookup and sovereign Knowlia routing.",
+    "No diagnostic or commercial claims of clinical monopoly are made.",
+    "Operational and commercial boundaries strictly separate synthetic models from real-world clinical care."
+  ],
+  "files": {
+    "financial_scenarios_csv": {
+      "path": "financial_scenarios.csv",
+      "sha256": "09725d4c91c366881cb73aee7fa6605c9ef4fa9581eb2b5456c43c07e815e9c5"
+    },
+    "cost_breakdown_csv": {
+      "path": "cost_breakdown.csv",
+      "sha256": "b886db79ef590174cca4d725561678c13f5e559bf6144364ea64e0607b2bd4c9"
+    },
+    "pilot_kpis_csv": {
+      "path": "pilot_kpis.csv",
+      "sha256": "96fdfa95e1b54dbbe483d8383acfb1bdd9bb2196c66dc7ed32f306247495fda9"
+    },
+    "figure_financial_scenarios": {
+      "path": "figures/financial_scenarios.svg",
+      "sha256": "d3f2d6db3867a091a82b1bc259ea00c3b2214c8e8ad104f56973f4be39a960d7"
+    },
+    "figure_cost_breakdown": {
+      "path": "figures/cost_breakdown.svg",
+      "sha256": "bb7d608b213e0b3d561eddf16f87fd2ae8ae58ae6d47e495cb1fb84e23aec19f"
+    },
+    "figure_pilot_timeline": {
+      "path": "figures/pilot_timeline.svg",
+      "sha256": "ff0374ce4bbae0e72ebd9a566a29582924c26304693ad656bc121d0cbe54c7b9"
+    }
+  }
+}
