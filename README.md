@@ -41,6 +41,12 @@ Open the application at http://localhost:3001, including `/ai`. Health endpoints
 
 See [docs/PRODUCTION_READINESS_V10.md](docs/PRODUCTION_READINESS_V10.md) for architecture, security, deployment, limitations and the jury demonstration script.
 
+The challenge-ready, bilingual quantitative evidence package is available in [docs/health-impact/README.md](docs/health-impact/README.md). It includes reproducible synthetic experiments, CSV tables, SVG charts, scientific limitations, jury briefs and a future-pilot measurement protocol. Regenerate it with:
+
+```powershell
+& .\.venv\Scripts\python.exe scripts\evaluate_health_impact.py
+```
+
 ## Fresh dependency installation
 
 ```powershell

@@ -1,0 +1,94 @@
+{
+  "analysis": "PREVIA synthetic health-impact demonstration",
+  "schema_version": "1.0.0",
+  "configuration": {
+    "cohort_size": 240,
+    "capacities": [
+      24,
+      45,
+      72,
+      120
+    ],
+    "seeds": [
+      2026,
+      2027,
+      2028,
+      2029,
+      2030,
+      2031,
+      2032,
+      2033,
+      2034,
+      2035,
+      2036,
+      2037,
+      2038,
+      2039,
+      2040,
+      2041,
+      2042,
+      2043,
+      2044,
+      2045,
+      2046,
+      2047,
+      2048,
+      2049,
+      2050,
+      2051,
+      2052,
+      2053,
+      2054,
+      2055
+    ],
+    "baseline_seed": 2026,
+    "priority_definition": "WHO chart-cell value >= 10%",
+    "strategies": [
+      "chart_descending",
+      "sector_balanced",
+      "seeded_random"
+    ]
+  },
+  "scientific_boundaries": [
+    "All profiles, sectors and results are synthetic.",
+    "The priority label is descriptive and is not a referral threshold.",
+    "Chart-based coverage is circular for the chart-ranked strategy and is not independent clinical validation.",
+    "No diagnostic accuracy, prevalence, health outcome, event prevention or causal benefit is estimated.",
+    "WHO chart lookup, NHANES HbA1c model, SHAP explanations and allocation simulation remain separate components."
+  ],
+  "cohort_sha256": "c32cb39e732f4ae5544c3568408a378e1f48e95194a5476ea556ca42a912e311",
+  "files": {
+    "risk_distribution": {
+      "path": "risk_distribution.csv",
+      "sha256": "63f91d43f1861cf49828cf6458c0187065dbfa86520f66a3e3cb8146ac7f0fec"
+    },
+    "baseline_capacity_results": {
+      "path": "baseline_capacity_results.csv",
+      "sha256": "67a64620d910341d224d268be21cb1cecc962d2e1b72c6fcf2c5a280b669429e"
+    },
+    "all_seed_runs": {
+      "path": "all_seed_runs.csv",
+      "sha256": "fadfc43fc2e19519cff5f79c591b044bf282c748aec57d020eb42b41491ea68c"
+    },
+    "stability_summary": {
+      "path": "stability_summary.csv",
+      "sha256": "ae318728d547078558662e5491796b8ca0fc4b106a8bd8969028d148ba3dffdb"
+    },
+    "figure_risk_distribution": {
+      "path": "figures/risk_distribution.svg",
+      "sha256": "fb911fda45686843d7a2cebe72eadcb566655e2c773c4275eaaae870db495891"
+    },
+    "figure_coverage_by_capacity": {
+      "path": "figures/coverage_by_capacity.svg",
+      "sha256": "1421e1092b67eb968a8306795e775f3db31683f5ff6c18837ed8122475d268b0"
+    },
+    "figure_stability": {
+      "path": "figures/stability_45_slots.svg",
+      "sha256": "c1b5563aeacb9d9ed4fe24839bd0c4e2a642154db2d70dbd8e5f36adec5c3af9"
+    },
+    "figure_selection_gaps": {
+      "path": "figures/selection_gaps_45_slots.svg",
+      "sha256": "285567968fb7a47260d1c65f0c231545d1568acf9cbf5fee4d14aae83cc05ef8"
+    }
+  }
+}

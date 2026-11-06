@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="920" height="440" viewBox="0 0 920 440" role="img">
+<title>Stability across 30 synthetic cohorts</title>
+<rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+<text x="50" y="42" font-family="Arial" font-size="22" font-weight="700" fill="#10233f">Stability across 30 synthetic cohorts</text>
+<text x="50" y="66" font-family="Arial" font-size="13" fill="#58708d">Priority coverage at 45 slots; whiskers show min–max, point shows median</text>
+<line x1="220.0" y1="95" x2="220.0" y2="325" stroke="#e1e9ef"/>
+<text x="220.0" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">0</text>
+<line x1="321.6666666666667" y1="95" x2="321.6666666666667" y2="325" stroke="#e1e9ef"/>
+<text x="321.7" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">10</text>
+<line x1="423.33333333333337" y1="95" x2="423.33333333333337" y2="325" stroke="#e1e9ef"/>
+<text x="423.3" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">20</text>
+<line x1="525.0" y1="95" x2="525.0" y2="325" stroke="#e1e9ef"/>
+<text x="525.0" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">30</text>
+<line x1="626.6666666666667" y1="95" x2="626.6666666666667" y2="325" stroke="#e1e9ef"/>
+<text x="626.7" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">40</text>
+<line x1="728.3333333333333" y1="95" x2="728.3333333333333" y2="325" stroke="#e1e9ef"/>
+<text x="728.3" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">50</text>
+<line x1="830.0" y1="95" x2="830.0" y2="325" stroke="#e1e9ef"/>
+<text x="830.0" y="350.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">60</text>
+<text x="200.0" y="120.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">WHO chart value first</text>
+<line x1="598.0983333333334" y1="115" x2="745.82" y2="115" stroke="#087f8c" stroke-width="7" stroke-linecap="round"/>
+<circle cx="668.5533333333333" cy="115" r="7" fill="#10233f"/>
+<text x="757.8" y="120.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">37.19–51.72%</text>
+<text x="200.0" y="195.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">Sector-balanced</text>
+<line x1="598.0983333333334" y1="190" x2="745.82" y2="190" stroke="#49b3aa" stroke-width="7" stroke-linecap="round"/>
+<circle cx="668.5533333333333" cy="190" r="7" fill="#10233f"/>
+<text x="757.8" y="195.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">37.19–51.72%</text>
+<text x="200.0" y="270.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">Seeded random</text>
+<line x1="327.56333333333333" y1="265" x2="491.755" y2="265" stroke="#9aa9b6" stroke-width="7" stroke-linecap="round"/>
+<circle cx="408.28666666666663" cy="265" r="7" fill="#10233f"/>
+<text x="503.8" y="270.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">10.58–26.73%</text>
+<text x="525.0" y="395.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="middle">Priority-profile coverage (%)</text>
+</svg>

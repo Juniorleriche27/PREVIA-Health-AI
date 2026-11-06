@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="940" height="470" viewBox="0 0 940 470" role="img">
+<title>Descriptive selection-rate gaps at 45 slots</title>
+<rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+<text x="50" y="42" font-family="Arial" font-size="22" font-weight="700" fill="#10233f">Descriptive selection-rate gaps at 45 slots</text>
+<text x="50" y="66" font-family="Arial" font-size="13" fill="#58708d">Percentage-point gaps on the baseline synthetic cohort; not a fairness certification</text>
+<text x="220.0" y="133.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">WHO chart value first</text>
+<rect x="240" y="115" width="208.2" height="24" rx="5" fill="#168f91"/>
+<text x="456.2" y="132.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">Sector 8.33 pp</text>
+<rect x="240" y="149" width="225.5" height="24" rx="5" fill="#86a8b7"/>
+<text x="473.5" y="166.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">Reference sex 9.02 pp</text>
+<text x="220.0" y="228.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">Sector-balanced</text>
+<rect x="240" y="210" width="41.8" height="24" rx="5" fill="#168f91"/>
+<text x="289.8" y="227.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">Sector 1.67 pp</text>
+<rect x="240" y="244" width="267.5" height="24" rx="5" fill="#86a8b7"/>
+<text x="515.5" y="261.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">Reference sex 10.70 pp</text>
+<text x="220.0" y="323.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">Seeded random</text>
+<rect x="240" y="305" width="208.2" height="24" rx="5" fill="#168f91"/>
+<text x="456.2" y="322.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">Sector 8.33 pp</text>
+<rect x="240" y="339" width="183.5" height="24" rx="5" fill="#86a8b7"/>
+<text x="431.5" y="356.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="start">Reference sex 7.34 pp</text>
+</svg>

@@ -1,0 +1,13 @@
+seed,cohort_size,capacity,capacity_pct,strategy,priority_total,priority_selected,priority_capture_pct,priority_yield_pct,mean_chart_value_pct,sector_selection_gap_pp,sector_priority_capture_gap_pp,sex_selection_gap_pp,sex_priority_capture_gap_pp
+2026,240,24,10.0,chart_descending,121,24,19.83,100.0,23.71,6.67,11.34,3.36,0.36
+2026,240,24,10.0,sector_balanced,121,24,19.83,100.0,23.62,0.0,5.82,5.03,3.68
+2026,240,24,10.0,seeded_random,121,15,12.4,62.5,11.25,6.67,9.75,8.39,6.46
+2026,240,45,18.75,chart_descending,121,45,37.19,100.0,21.4,8.33,14.72,9.02,6.07
+2026,240,45,18.75,sector_balanced,121,45,37.19,100.0,21.24,1.67,14.67,10.7,9.4
+2026,240,45,18.75,seeded_random,121,22,18.18,48.89,10.13,8.33,8.85,7.34,7.25
+2026,240,72,30.0,chart_descending,121,72,59.5,100.0,19.08,13.33,15.74,13.43,7.72
+2026,240,72,30.0,sector_balanced,121,72,59.5,100.0,19.0,0.0,17.45,16.78,14.37
+2026,240,72,30.0,seeded_random,121,34,28.1,47.22,10.04,10.0,14.79,8.39,19.07
+2026,240,120,50.0,chart_descending,121,120,99.17,100.0,16.15,15.0,4.0,16.78,1.79
+2026,240,120,50.0,sector_balanced,121,115,95.04,95.83,16.07,0.0,9.09,15.1,0.74
+2026,240,120,50.0,seeded_random,121,58,47.93,48.33,9.86,10.0,24.93,8.39,16.1

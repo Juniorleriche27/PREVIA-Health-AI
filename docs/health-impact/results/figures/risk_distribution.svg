@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="430" viewBox="0 0 900 430" role="img">
+<title>Synthetic cohort by WHO chart category</title>
+<rect width="100%" height="100%" fill="#ffffff" rx="16"/>
+<text x="50" y="42" font-family="Arial" font-size="22" font-weight="700" fill="#10233f">Synthetic cohort by WHO chart category</text>
+<text x="50" y="66" font-family="Arial" font-size="13" fill="#58708d">Baseline seed 2026; values are simulated, not prevalence estimates</text>
+<text x="165.0" y="127.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">&lt;5%</text>
+<rect x="180" y="105" width="409.0" height="28" rx="7" fill="#168f91"/>
+<text x="599.0" y="125.0" font-family="Arial" font-size="12" fill="#10233f" text-anchor="start">56 (23.3%)</text>
+<text x="165.0" y="177.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">5% to &lt;10%</text>
+<rect x="180" y="155" width="460.1" height="28" rx="7" fill="#168f91"/>
+<text x="650.1" y="175.0" font-family="Arial" font-size="12" fill="#10233f" text-anchor="start">63 (26.2%)</text>
+<text x="165.0" y="227.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">10% to &lt;20%</text>
+<rect x="180" y="205" width="650.0" height="28" rx="7" fill="#168f91"/>
+<text x="840.0" y="225.0" font-family="Arial" font-size="12" fill="#10233f" text-anchor="start">89 (37.1%)</text>
+<text x="165.0" y="277.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">20% to &lt;30%</text>
+<rect x="180" y="255" width="226.4" height="28" rx="7" fill="#168f91"/>
+<text x="416.4" y="275.0" font-family="Arial" font-size="12" fill="#10233f" text-anchor="start">31 (12.9%)</text>
+<text x="165.0" y="327.0" font-family="Arial" font-size="12" fill="#334e68" text-anchor="end">≥30%</text>
+<rect x="180" y="305" width="7.3" height="28" rx="7" fill="#168f91"/>
+<text x="197.3" y="325.0" font-family="Arial" font-size="12" fill="#10233f" text-anchor="start">1 (0.4%)</text>
+</svg>
