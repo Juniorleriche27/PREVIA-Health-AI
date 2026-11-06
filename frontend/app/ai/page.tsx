@@ -383,52 +383,64 @@ export default function AIPage() {
 
           {/* Panel 2: Grounded RAG Assistant */}
           <section className={`${styles.panelCard} ${styles.assistantCard}`} aria-label={t("Reference Assistant")}>
-            <div className={styles.cardHeader}>
-              <div className={styles.headerTitleGroup}>
+            {/* Single-Line Compact Header to maximize chat reading height */}
+            <div className={styles.assistantHeader}>
+              <div className={styles.assistantHeaderLeft}>
                 <span className="stepchip">02 · RAG</span>
-                <h2>{t("Reference assistant")}</h2>
-                <p className={styles.headerSubtitle}>{t("Grounded answers with visible sources")}</p>
+                <h2 className={styles.assistantTitle}>{t("Reference assistant")}</h2>
               </div>
-              <span className={styles.privacyPill}>{t("Session only")}</span>
-            </div>
 
-            {/* Model settings accordion */}
-            <details className={styles.settings}>
-              <summary>
-                <span>{t("Model settings")}</span>
-                <small>{provider === "extractive" ? t("Extractive · no LLM") : `${provider} · ${model}`}</small>
-              </summary>
-              <div className={styles.providerRow}>
-                <label>
-                  {t("LLM provider")}
-                  <select aria-label="LLM provider" value={provider} onChange={e => changeProvider(e.target.value)}>
-                    <option value="extractive">{t("Documentary retrieval · no LLM")}</option>
-                    {providers.map(p => (
-                      <option key={p.id} value={p.id} disabled={!p.ready}>
-                        {p.label} ({p.adapter}){p.ready ? "" : ` — ${t("API key missing")}`}
-                      </option>
-                    ))}
-                  </select>
-                </label>
-                <label>
-                  {t("Model ID")}
-                  <input
-                    aria-label="Model ID"
-                    value={model}
-                    maxLength={160}
-                    placeholder={provider === "extractive" ? t("No model selected") : t("Configured model")}
-                    disabled={provider === "extractive"}
-                    onChange={e => setModel(e.target.value)}
-                  />
-                </label>
+              <div className={styles.assistantHeaderRight}>
+                {/* Compact model settings dropdown on same single line */}
+                <details className={styles.compactSettings}>
+                  <summary className={styles.compactSettingsSummary} title={t("Model settings")}>
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <circle cx="12" cy="12" r="3" />
+                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                    </svg>
+                    <span className={styles.compactModelName}>
+                      {provider === "extractive" ? t("Extractive · no LLM") : `${provider} · ${model}`}
+                    </span>
+                    <span className={styles.chevronIcon} aria-hidden="true">▾</span>
+                  </summary>
+
+                  <div className={styles.compactSettingsDropdown}>
+                    <div className={styles.providerRow}>
+                      <label>
+                        {t("LLM provider")}
+                        <select aria-label={t("LLM provider")} value={provider} onChange={e => changeProvider(e.target.value)}>
+                          <option value="extractive">{t("Documentary retrieval · no LLM")}</option>
+                          {providers.map(p => (
+                            <option key={p.id} value={p.id} disabled={!p.ready}>
+                              {p.label} ({p.adapter}){p.ready ? "" : ` — ${t("API key missing")}`}
+                            </option>
+                          ))}
+                        </select>
+                      </label>
+                      <label>
+                        {t("Model ID")}
+                        <input
+                          aria-label={t("Model ID")}
+                          value={model}
+                          maxLength={160}
+                          placeholder={provider === "extractive" ? t("No model selected") : t("Configured model")}
+                          disabled={provider === "extractive"}
+                          onChange={e => setModel(e.target.value)}
+                        />
+                      </label>
+                    </div>
+                    {providerError && <p className={styles.small}>{t(providerError)}</p>}
+                    {providers.length === 0 && (
+                      <p className={styles.small}>
+                        {t("No provider is configured. Add any supported API or local OpenAI-compatible endpoint through the PowerShell configuration script. No provider is imposed.")}
+                      </p>
+                    )}
+                  </div>
+                </details>
+
+                <span className={styles.privacyPill}>{t("Session only")}</span>
               </div>
-              {providerError && <p className={styles.small}>{t(providerError)}</p>}
-              {providers.length === 0 && (
-                <p className={styles.small}>
-                  {t("No provider is configured. Add any supported API or local OpenAI-compatible endpoint through the PowerShell configuration script. No provider is imposed.")}
-                </p>
-              )}
-            </details>
+            </div>
 
             {/* Independent scrollable Chat Feed */}
             <div className={styles.chatScrollArea} aria-live="polite">
