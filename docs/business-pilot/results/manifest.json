@@ -1,57 +1,87 @@
 {
-  "analysis": "PREVIA Health AI — Commercial Viability & Pilot Operational Model",
-  "schema_version": "1.0.0",
-  "competition": "Future Health Digital Innovation Challenge 2026",
-  "observed_baseline": {
-    "vps_netcup_monthly": 25.0,
-    "vercel_frontend_monthly": 20.0,
-    "domain_dns_annual": 24.0,
-    "token_rag_query_eur": 0.0015,
-    "extractive_query_eur": 0.0
+  "analysis": "PREVIA commercial planning model — audited",
+  "schema_version": "2.0.0",
+  "deployment_facts_verified_from_repository_and_public_endpoints": {
+    "frontend": "Vercel deployment",
+    "backend": "Netcup-hosted PREVIA API",
+    "ai_service": "Knowlia accessed through a private API integration",
+    "public_api_domain": "api.previa.koryxa.fr"
   },
-  "indicative_pricing": {
+  "cost_evidence_status": {
+    "observed_expenses_with_invoice_in_repository": [],
+    "supplier_quotes_in_repository": [],
+    "planning_assumptions_unverified": {
+      "vps_instance_monthly_eur": 25.0,
+      "vercel_monthly_eur": 20.0,
+      "domain_dns_annual_eur": 24.0,
+      "backup_monitoring_per_instance_annual_eur": 180.0,
+      "rag_query_eur": 0.0015,
+      "rag_queries_per_profile": 0.3,
+      "base_devops_annual_eur": 3200.0,
+      "pilot_devops_eur": 1000.0,
+      "campaign_devops_eur": 400.0,
+      "license_devops_eur": 1500.0,
+      "pilot_support_eur": 2200.0,
+      "campaign_support_eur": 800.0,
+      "license_support_eur": 1800.0,
+      "pilot_audit_eur": 1500.0,
+      "campaign_audit_eur": 300.0,
+      "license_audit_eur": 800.0
+    }
+  },
+  "indicative_pricing_non_contractual": {
     "pilot_package_eur": 12000.0,
-    "campaign_base_eur": 2500.0,
-    "campaign_extra_profile_eur": 0.3,
+    "campaign_package_eur": 2500.0,
     "annual_license_eur": 15000.0
   },
+  "supplementary_revenue_modeled": false,
   "breakeven_analysis": {
-    "fixed_annual_overhead_eur": 3944.0,
-    "campaigns_to_breakeven": 3.9,
-    "licenses_to_breakeven": 0.36
+    "fixed_annual_overhead_assumption_eur": 3944.0,
+    "incremental_cost_per_campaign_assumption_eur": 1500.0,
+    "contribution_per_campaign_eur": 1000.0,
+    "campaigns_to_breakeven_continuous": 3.944,
+    "campaigns_to_breakeven_integer": 4,
+    "incremental_cost_per_license_assumption_eur": 4100.0,
+    "contribution_per_license_eur": 10900.0,
+    "licenses_to_breakeven_continuous": 0.362,
+    "licenses_to_breakeven_integer": 1
   },
   "business_boundaries": [
-    "All scenario projections are model-based planning estimates and do not represent signed customer contracts.",
-    "Indicative pricing reflects fair-market healthtech benchmarks and must be negotiated per institutional pilot.",
-    "Infrastructure costs reflect observed server and SaaS hosting costs as of November 2026.",
-    "Marginal token costs are bounded by PREVIA's deterministic local WHO lookup and sovereign Knowlia routing.",
-    "No diagnostic or commercial claims of clinical monopoly are made.",
-    "Operational and commercial boundaries strictly separate synthetic models from real-world clinical care."
+    "Scenario volumes, prices, costs, margins and break-even points are planning assumptions, not actual sales or audited accounts.",
+    "No invoice, supplier quote, payroll record, signed customer contract or signed pilot partnership is stored in the repository.",
+    "Chantier 15 results are synthetic allocation simulations and are not clinical observations or causal health-impact evidence.",
+    "Seeded random allocation is a simulation comparator and must not be described as opportunistic or first-come-first-served care.",
+    "Pilot KPI thresholds are proposed targets; they have not been achieved in a real-world pilot.",
+    "The public GitHub repository has no LICENSE file; public access does not grant general open-source reuse rights."
   ],
   "files": {
     "financial_scenarios_csv": {
       "path": "financial_scenarios.csv",
-      "sha256": "09725d4c91c366881cb73aee7fa6605c9ef4fa9581eb2b5456c43c07e815e9c5"
+      "sha256": "7ae391694dae4900df3d22f3680eff8e0e90193a243dd3a0551655ff11265f4c"
     },
     "cost_breakdown_csv": {
       "path": "cost_breakdown.csv",
-      "sha256": "b886db79ef590174cca4d725561678c13f5e559bf6144364ea64e0607b2bd4c9"
+      "sha256": "3ef60288bf53f50d23df4b6416ef7c2abb2e96c309286bb08d8c922b96b38075"
+    },
+    "cost_inputs_csv": {
+      "path": "cost_inputs.csv",
+      "sha256": "25a073f0ba5811a490b8e0281219eb888addcafb2bff9585cb429995b967a26c"
     },
     "pilot_kpis_csv": {
       "path": "pilot_kpis.csv",
-      "sha256": "96fdfa95e1b54dbbe483d8383acfb1bdd9bb2196c66dc7ed32f306247495fda9"
+      "sha256": "5411f0e93a2c0beec2e19d5653989bc7f6c3e1d93113ce4b59c9588954224ba6"
     },
     "figure_financial_scenarios": {
       "path": "figures/financial_scenarios.svg",
-      "sha256": "d3f2d6db3867a091a82b1bc259ea00c3b2214c8e8ad104f56973f4be39a960d7"
+      "sha256": "dd13d0e8c52560127ebbcb8b1dd7f036b26e88ead52c8f7a658cf2bbd3796ba0"
     },
     "figure_cost_breakdown": {
       "path": "figures/cost_breakdown.svg",
-      "sha256": "bb7d608b213e0b3d561eddf16f87fd2ae8ae58ae6d47e495cb1fb84e23aec19f"
+      "sha256": "f1e6271ebbedddfb6da73f8037e3804157b4efe8e81ef4cf0dc6d06e926f0549"
     },
     "figure_pilot_timeline": {
       "path": "figures/pilot_timeline.svg",
-      "sha256": "ff0374ce4bbae0e72ebd9a566a29582924c26304693ad656bc121d0cbe54c7b9"
+      "sha256": "e0faa232b4725dd6f36a6bedc98d6921b102db44c5ef385a0ce9710ee9228dd9"
     }
   }
 }

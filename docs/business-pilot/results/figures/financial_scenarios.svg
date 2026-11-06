@@ -1,79 +1,65 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 520" width="100%" height="auto">
-<style>
-  .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #112d3d; }
-  .sub { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12.5px; fill: #526f80; }
-  .axis { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; fill: #657f8d; }
-  .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; }
-  .grid { stroke: #e3edf2; stroke-width: 1; stroke-dasharray: 3 3; }
-</style>
-<rect width="980" height="520" rx="14" fill="#ffffff" stroke="#d5e3ea" stroke-width="1"/>
-<text x="36" y="40" class="title">PREVIA Health AI — Trajectoire financière prévisionnelle (3 ans)</text>
-<text x="36" y="62" class="sub">Projection comparée du chiffre d&#x27;affaires et de la marge brute selon 3 scénarios réalistes (en k€)</text>
-<line x1="55" y1="440.0" x2="935" y2="440.0" class="grid" />
-<text x="47" y="444.0" class="axis" text-anchor="end">0k€</text>
-<line x1="55" y1="382.85714285714283" x2="935" y2="382.85714285714283" class="grid" />
-<text x="47" y="386.85714285714283" class="axis" text-anchor="end">50k€</text>
-<line x1="55" y1="325.7142857142857" x2="935" y2="325.7142857142857" class="grid" />
-<text x="47" y="329.7142857142857" class="axis" text-anchor="end">100k€</text>
-<line x1="55" y1="268.57142857142856" x2="935" y2="268.57142857142856" class="grid" />
-<text x="47" y="272.57142857142856" class="axis" text-anchor="end">150k€</text>
-<line x1="55" y1="211.42857142857142" x2="935" y2="211.42857142857142" class="grid" />
-<text x="47" y="215.42857142857142" class="axis" text-anchor="end">200k€</text>
-<line x1="55" y1="154.28571428571428" x2="935" y2="154.28571428571428" class="grid" />
-<text x="47" y="158.28571428571428" class="axis" text-anchor="end">250k€</text>
-<rect x="65" y="100" width="270" height="365" rx="10" fill="#f8fafc" stroke="#e8eff3" stroke-width="1"/>
-<text x="200.0" y="122" class="label" fill="#173b4c" font-size="12px" text-anchor="middle">Scénario Prudent</text>
-<rect x="90" y="426.2857142857143" width="20" height="13.714285714285715" rx="4" fill="#087584" />
-<rect x="113" y="436.16508571428574" width="20" height="3.834914285714286" rx="4" fill="#10b981" />
-<text x="100.0" y="421.2857142857143" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">12k</text>
-<text x="123.0" y="431.16508571428574" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">3k</text>
-<text x="111" y="458" class="axis" font-weight="600" text-anchor="middle">A1</text>
-<rect x="165" y="417.7142857142857" width="20" height="22.285714285714285" rx="4" fill="#087584" />
-<rect x="188" y="432.74037714285714" width="20" height="7.2596228571428565" rx="4" fill="#10b981" />
-<text x="175.0" y="412.7142857142857" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">20k</text>
-<text x="198.0" y="427.74037714285714" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">6k</text>
-<text x="186" y="458" class="axis" font-weight="600" text-anchor="middle">A2</text>
-<rect x="240" y="404.0" width="20" height="36.0" rx="4" fill="#087584" />
-<rect x="263" y="424.0377142857143" width="20" height="15.962285714285716" rx="4" fill="#10b981" />
-<text x="250.0" y="399.0" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">32k</text>
-<text x="273.0" y="419.0377142857143" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">14k</text>
-<text x="261" y="458" class="axis" font-weight="600" text-anchor="middle">A3</text>
-<rect x="360" y="100" width="270" height="365" rx="10" fill="#f8fafc" stroke="#e8eff3" stroke-width="1"/>
-<text x="495.0" y="122" class="label" fill="#173b4c" font-size="12px" text-anchor="middle">Scénario Central (Base Case)</text>
-<rect x="385" y="420.57142857142856" width="20" height="19.428571428571427" rx="4" fill="#087584" />
-<rect x="408" y="433.88194285714286" width="20" height="6.118057142857143" rx="4" fill="#10b981" />
-<text x="395.0" y="415.57142857142856" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">17k</text>
-<text x="418.0" y="428.88194285714286" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">5k</text>
-<text x="406" y="458" class="axis" font-weight="600" text-anchor="middle">A1</text>
-<rect x="460" y="385.1428571428571" width="20" height="54.85714285714286" rx="4" fill="#087584" />
-<rect x="483" y="410.41742857142856" width="20" height="29.582571428571427" rx="4" fill="#10b981" />
-<text x="470.0" y="380.1428571428571" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">48k</text>
-<text x="493.0" y="405.41742857142856" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">26k</text>
-<text x="481" y="458" class="axis" font-weight="600" text-anchor="middle">A2</text>
-<rect x="535" y="300.2857142857143" width="20" height="139.71428571428572" rx="4" fill="#087584" />
-<rect x="558" y="357.812" width="20" height="82.188" rx="4" fill="#10b981" />
-<text x="545.0" y="295.2857142857143" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">122k</text>
-<text x="568.0" y="352.812" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">72k</text>
-<text x="556" y="458" class="axis" font-weight="600" text-anchor="middle">A3</text>
-<rect x="655" y="100" width="270" height="365" rx="10" fill="#f8fafc" stroke="#e8eff3" stroke-width="1"/>
-<text x="790.0" y="122" class="label" fill="#173b4c" font-size="12px" text-anchor="middle">Scénario Ambitieux</text>
-<rect x="680" y="401.14285714285717" width="20" height="38.857142857142854" rx="4" fill="#087584" />
-<rect x="703" y="424.35360000000003" width="20" height="15.6464" rx="4" fill="#10b981" />
-<text x="690.0" y="396.14285714285717" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">34k</text>
-<text x="713.0" y="419.35360000000003" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">14k</text>
-<text x="701" y="458" class="axis" font-weight="600" text-anchor="middle">A1</text>
-<rect x="755" y="328.57142857142856" width="20" height="111.42857142857142" rx="4" fill="#087584" />
-<rect x="778" y="375.71285714285716" width="20" height="64.28714285714285" rx="4" fill="#10b981" />
-<text x="765.0" y="323.57142857142856" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">98k</text>
-<text x="788.0" y="370.71285714285716" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">56k</text>
-<text x="776" y="458" class="axis" font-weight="600" text-anchor="middle">A2</text>
-<rect x="830" y="167.14285714285717" width="20" height="272.85714285714283" rx="4" fill="#087584" />
-<rect x="853" y="269.6702857142857" width="20" height="170.3297142857143" rx="4" fill="#10b981" />
-<text x="840.0" y="162.14285714285717" class="axis" font-size="9.5px" text-anchor="middle" fill="#087584">239k</text>
-<text x="863.0" y="264.6702857142857" class="axis" font-size="9.5px" text-anchor="middle" fill="#059669">149k</text>
-<text x="851" y="458" class="axis" font-weight="600" text-anchor="middle">A3</text>
-<rect x="340" y="490" width="14" height="14" rx="3" fill="#087584"/>
-<text x="360" y="501" class="axis" fill="#203a49">Chiffre d'affaires total (€)</text>
-<rect x="530" y="490" width="14" height="14" rx="3" fill="#10b981"/>
-<text x="550" y="501" class="axis" fill="#203a49">Marge brute indicative (€)</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 510">
+<rect width="100%" height="100%" rx="14" fill="#fff" stroke="#d5e3ea"/>
+<text x="36" y="38" font-family="Arial" font-size="19" font-weight="700" fill="#112d3d">PREVIA — modeled financial scenarios</text>
+<text x="36" y="61" font-family="Arial" font-size="12" fill="#526f80">Declared prices only; revenue and margin in kEUR; no signed contracts</text>
+<line x1="60" y1="415.0" x2="940" y2="415.0" stroke="#e3edf2"/>
+<text x="50" y="419.0" font-family="Arial" font-size="10" text-anchor="end" fill="#657f8d">0</text>
+<line x1="60" y1="350.5" x2="940" y2="350.5" stroke="#e3edf2"/>
+<text x="50" y="354.5" font-family="Arial" font-size="10" text-anchor="end" fill="#657f8d">50</text>
+<line x1="60" y1="286.1" x2="940" y2="286.1" stroke="#e3edf2"/>
+<text x="50" y="290.1" font-family="Arial" font-size="10" text-anchor="end" fill="#657f8d">100</text>
+<line x1="60" y1="221.6" x2="940" y2="221.6" stroke="#e3edf2"/>
+<text x="50" y="225.6" font-family="Arial" font-size="10" text-anchor="end" fill="#657f8d">150</text>
+<line x1="60" y1="157.2" x2="940" y2="157.2" stroke="#e3edf2"/>
+<text x="50" y="161.2" font-family="Arial" font-size="10" text-anchor="end" fill="#657f8d">200</text>
+<text x="180" y="88" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle" fill="#173b4c">Prudent (Conservative)</text>
+<rect x="90" y="399.5" width="18" height="15.5" rx="3" fill="#087584"/>
+<text x="99" y="394.5" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">12.0</text>
+<rect x="112" y="410.7" width="18" height="4.3" rx="3" fill="#10b981"/>
+<text x="121" y="405.7" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">3.4</text>
+<text x="110" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y1</text>
+<rect x="162" y="389.9" width="18" height="25.1" rx="3" fill="#087584"/>
+<text x="171" y="384.9" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">19.5</text>
+<rect x="184" y="406.8" width="18" height="8.2" rx="3" fill="#10b981"/>
+<text x="193" y="401.8" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">6.4</text>
+<text x="182" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y2</text>
+<rect x="234" y="376.3" width="18" height="38.7" rx="3" fill="#087584"/>
+<text x="243" y="371.3" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">30.0</text>
+<rect x="256" y="398.9" width="18" height="16.1" rx="3" fill="#10b981"/>
+<text x="265" y="393.9" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">12.5</text>
+<text x="254" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y3</text>
+<text x="475" y="88" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle" fill="#173b4c">Central (Base Case)</text>
+<rect x="385" y="393.1" width="18" height="21.9" rx="3" fill="#087584"/>
+<text x="394" y="388.1" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">17.0</text>
+<rect x="407" y="408.1" width="18" height="6.9" rx="3" fill="#10b981"/>
+<text x="416" y="403.1" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">5.4</text>
+<text x="405" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y1</text>
+<rect x="457" y="357.0" width="18" height="58.0" rx="3" fill="#087584"/>
+<text x="466" y="352.0" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">45.0</text>
+<rect x="479" y="385.5" width="18" height="29.5" rx="3" fill="#10b981"/>
+<text x="488" y="380.5" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">22.9</text>
+<text x="477" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y2</text>
+<rect x="529" y="270.0" width="18" height="145.0" rx="3" fill="#087584"/>
+<text x="538" y="265.0" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">112.5</text>
+<rect x="551" y="334.9" width="18" height="80.1" rx="3" fill="#10b981"/>
+<text x="560" y="329.9" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">62.2</text>
+<text x="549" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y3</text>
+<text x="770" y="88" font-family="Arial" font-size="12" font-weight="700" text-anchor="middle" fill="#173b4c">Ambitieux (Optimistic)</text>
+<rect x="680" y="371.2" width="18" height="43.8" rx="3" fill="#087584"/>
+<text x="689" y="366.2" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">34.0</text>
+<rect x="702" y="397.4" width="18" height="17.6" rx="3" fill="#10b981"/>
+<text x="711" y="392.4" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">13.7</text>
+<text x="700" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y1</text>
+<rect x="752" y="299.0" width="18" height="116.0" rx="3" fill="#087584"/>
+<text x="761" y="294.0" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">90.0</text>
+<rect x="774" y="352.2" width="18" height="62.8" rx="3" fill="#10b981"/>
+<text x="783" y="347.2" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">48.8</text>
+<text x="772" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y2</text>
+<rect x="824" y="141.1" width="18" height="273.9" rx="3" fill="#087584"/>
+<text x="833" y="136.1" font-family="Arial" font-size="9" text-anchor="middle" fill="#087584">212.5</text>
+<rect x="846" y="256.7" width="18" height="158.3" rx="3" fill="#10b981"/>
+<text x="855" y="251.7" font-family="Arial" font-size="9" text-anchor="middle" fill="#10b981">122.8</text>
+<text x="844" y="435" font-family="Arial" font-size="10" text-anchor="middle" fill="#657f8d">Y3</text>
+<rect x="350" y="468" width="14" height="5" fill="#087584"/><text x="370" y="474" font-family="Arial" font-size="11">Revenue</text>
+<rect x="510" y="468" width="14" height="5" fill="#10b981"/><text x="530" y="474" font-family="Arial" font-size="11">Modeled margin</text>
 </svg>

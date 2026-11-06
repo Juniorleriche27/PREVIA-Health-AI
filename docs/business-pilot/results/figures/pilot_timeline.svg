@@ -1,63 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 430" width="100%" height="auto">
-<style>
-  .title { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 19px; font-weight: 700; fill: #112d3d; }
-  .sub { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 12.5px; fill: #526f80; }
-  .axis { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; fill: #657f8d; }
-  .label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 600; }
-  .grid { stroke: #e3edf2; stroke-width: 1; stroke-dasharray: 3 3; }
-</style>
-<rect width="960" height="430" rx="14" fill="#ffffff" stroke="#d5e3ea" stroke-width="1"/>
-<text x="36" y="40" class="title">PREVIA Health AI — Protocole d&#x27;expérimentation pilote en 4 phases (6 mois)</text>
-<text x="36" y="62" class="sub">Trajectoire opérationnelle rigoureuse : du paramétrage éthique à l&#x27;évaluation indépendante conjointe</text>
-<rect x="45" y="110" width="200" height="270" rx="10" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5"/>
-<rect x="45" y="110" width="200" height="48" rx="9" fill="#0284c7"/>
-<text x="60" y="132" font-family="-apple-system, sans-serif" font-size="11px" font-weight="700" fill="#ffffff">Phase 0 · Mois 1</text>
-<text x="60" y="148" font-family="-apple-system, sans-serif" font-size="11.5px" font-weight="600" fill="#ffffff">Cadrage &amp; Préparation éthique</text>
-<circle cx="63" cy="181" r="3" fill="#0284c7"/>
-<text x="73" y="185" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Signature convention (MOU)</text>
-<circle cx="63" cy="226" r="3" fill="#0284c7"/>
-<text x="73" y="230" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Comité éthique / RGPD local</text>
-<circle cx="63" cy="271" r="3" fill="#0284c7"/>
-<text x="73" y="275" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Paramétrage grille OMS</text>
-<circle cx="63" cy="316" r="3" fill="#0284c7"/>
-<text x="73" y="320" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Simulation sur cohortes synthétiques</text>
-<rect x="270" y="110" width="200" height="270" rx="10" fill="#f8fafc" stroke="#087584" stroke-width="1.5"/>
-<rect x="270" y="110" width="200" height="48" rx="9" fill="#087584"/>
-<text x="285" y="132" font-family="-apple-system, sans-serif" font-size="11px" font-weight="700" fill="#ffffff">Phase 1 · Mois 2</text>
-<text x="285" y="148" font-family="-apple-system, sans-serif" font-size="11.5px" font-weight="600" fill="#ffffff">Formation &amp; Test à blanc</text>
-<circle cx="288" cy="181" r="3" fill="#087584"/>
-<text x="298" y="185" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Formation de 5-10 soignants</text>
-<circle cx="288" cy="226" r="3" fill="#087584"/>
-<text x="298" y="230" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Guide d&#x27;usage bilingue</text>
-<circle cx="288" cy="271" r="3" fill="#087584"/>
-<text x="298" y="275" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">50 profils tests standardisés</text>
-<circle cx="288" cy="316" r="3" fill="#087584"/>
-<text x="298" y="320" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Validation Go/No-Go technique</text>
-<rect x="495" y="110" width="200" height="270" rx="10" fill="#f8fafc" stroke="#0d9488" stroke-width="1.5"/>
-<rect x="495" y="110" width="200" height="48" rx="9" fill="#0d9488"/>
-<text x="510" y="132" font-family="-apple-system, sans-serif" font-size="11px" font-weight="700" fill="#ffffff">Phase 2 · Mois 3 à 4</text>
-<text x="510" y="148" font-family="-apple-system, sans-serif" font-size="11.5px" font-weight="600" fill="#ffffff">Campagne terrain encadrée</text>
-<circle cx="513" cy="181" r="3" fill="#0d9488"/>
-<text x="523" y="185" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">500 à 1 000 profils réels</text>
-<circle cx="513" cy="226" r="3" fill="#0d9488"/>
-<text x="523" y="230" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Saisie pseudonymisée</text>
-<circle cx="513" cy="271" r="3" fill="#0d9488"/>
-<text x="523" y="275" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Supervision médicale 100%</text>
-<circle cx="513" cy="316" r="3" fill="#0d9488"/>
-<text x="523" y="320" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Support technique continu SLA</text>
-<rect x="720" y="110" width="200" height="270" rx="10" fill="#f8fafc" stroke="#10b981" stroke-width="1.5"/>
-<rect x="720" y="110" width="200" height="48" rx="9" fill="#10b981"/>
-<text x="735" y="132" font-family="-apple-system, sans-serif" font-size="11px" font-weight="700" fill="#ffffff">Phase 3 · Mois 5 à 6</text>
-<text x="735" y="148" font-family="-apple-system, sans-serif" font-size="11.5px" font-weight="600" fill="#ffffff">Audit, KPI &amp; Restitution</text>
-<circle cx="738" cy="181" r="3" fill="#10b981"/>
-<text x="748" y="185" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Audit complétude &amp; équité</text>
-<circle cx="738" cy="226" r="3" fill="#10b981"/>
-<text x="748" y="230" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Calcul des 12 KPIs pilote</text>
-<circle cx="738" cy="271" r="3" fill="#10b981"/>
-<text x="748" y="275" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Enquête satisfaction (SUS)</text>
-<circle cx="738" cy="316" r="3" fill="#10b981"/>
-<text x="748" y="320" font-family="-apple-system, sans-serif" font-size="10.5px" fill="#334155">Rapport d&#x27;évaluation conjoint</text>
-<path d="M 249 245.0 L 265 245.0 M 259 240.0 L 265 245.0 L 259 250.0" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 474 245.0 L 490 245.0 M 484 240.0 L 490 245.0 L 484 250.0" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 699 245.0 L 715 245.0 M 709 240.0 L 715 245.0 L 709 250.0" stroke="#94a3b8" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 300">
+<rect width="100%" height="100%" rx="14" fill="#fff" stroke="#d5e3ea"/>
+<text x="36" y="38" font-family="Arial" font-size="19" font-weight="700" fill="#112d3d">PREVIA — proposed pilot sequence</text>
+<text x="36" y="61" font-family="Arial" font-size="12" fill="#526f80">All targets require approvals and prospective measurement; none is an achieved clinical result</text>
+<rect x="40" y="100" width="205" height="125" rx="10" fill="#f8fafc" stroke="#087584"/>
+<circle cx="68" cy="130" r="16" fill="#087584"/><text x="68" y="135" font-family="Arial" font-size="12" text-anchor="middle" fill="#fff">1</text>
+<text x="95" y="135" font-family="Arial" font-size="13" font-weight="700">Governance</text>
+<text x="58" y="175" font-family="Arial" font-size="11" fill="#526f80">Approvals, protocol, data roles</text>
+<rect x="270" y="100" width="205" height="125" rx="10" fill="#f8fafc" stroke="#087584"/>
+<circle cx="298" cy="130" r="16" fill="#087584"/><text x="298" y="135" font-family="Arial" font-size="12" text-anchor="middle" fill="#fff">2</text>
+<text x="325" y="135" font-family="Arial" font-size="13" font-weight="700">Dry run</text>
+<text x="288" y="175" font-family="Arial" font-size="11" fill="#526f80">Training and synthetic cases</text>
+<rect x="500" y="100" width="205" height="125" rx="10" fill="#f8fafc" stroke="#087584"/>
+<circle cx="528" cy="130" r="16" fill="#087584"/><text x="528" y="135" font-family="Arial" font-size="12" text-anchor="middle" fill="#fff">3</text>
+<text x="555" y="135" font-family="Arial" font-size="13" font-weight="700">Supervised pilot</text>
+<text x="518" y="175" font-family="Arial" font-size="11" fill="#526f80">Human review and incident logging</text>
+<rect x="730" y="100" width="205" height="125" rx="10" fill="#f8fafc" stroke="#087584"/>
+<circle cx="758" cy="130" r="16" fill="#087584"/><text x="758" y="135" font-family="Arial" font-size="12" text-anchor="middle" fill="#fff">4</text>
+<text x="785" y="135" font-family="Arial" font-size="13" font-weight="700">Independent analysis</text>
+<text x="748" y="175" font-family="Arial" font-size="11" fill="#526f80">Results and limitations</text>
 </svg>

@@ -1,13 +1,13 @@
-id,category,name_fr,name_en,target,target_value,unit,method,evidence_level
-KPI-01,Operational Feasibility,Taux de complétude des dossiers,Record Completeness Rate,≥ 98.0%,98.0,%,"Audit automatisé des champs obligatoires (âge, sexe, tabac, PAS, IMC)",Niveau 2 (Faisabilité terrain)
-KPI-02,Operational Feasibility,Durée moyenne d'évaluation par profil,Mean Screening Duration per Profile,≤ 90 s,90.0,secondes,Chronométrage serveur entre début de saisie et génération du résultat,Niveau 2 (Efficience opérationnelle)
-KPI-03,Clinical Reliability,Concordance déterministe avec la table OMS,Deterministic WHO Table Concordance,100.0%,100.0,%,Contrôle unitaire 700/700 cellules OMS 2019 et double validation médicale,Niveau 1 (Concordance mathématique)
-KPI-04,Resource Allocation,Respect de la contrainte de capacité,Capacity Constraint Compliance,100.0%,100.0,%,Contrôle strict des quotas de créneaux alloués par cycle de campagne,Niveau 1 (Règle d'allocation)
-KPI-05,Equity & Access,Disparité de sélection inter-secteurs,Inter-Sector Selection Disparity Gap,≤ 5.0 pp,5.0,points de pourcentage,Calcul de l'écart max-min de taux de sélection entre quartiers (Stratégie équilibrée),Niveau 2 (Équité territoriale documentée)
-KPI-06,User Adoption,Score d'utilisabilité système (SUS),System Usability Scale (SUS),≥ 80 / 100,80.0,score / 100,Questionnaire standardisé SUS en 10 items auprès des infirmiers et agents de santé,Niveau 2 (Acceptabilité utilisateur)
-KPI-07,Technical & Security,Disponibilité de la plateforme (Uptime),Platform Availability (Uptime),≥ 99.5%,99.5,%,Surveillance automatisée UptimeRobot / Sentry sur 6 mois,Niveau 1 (Fiabilité infrastructure)
-KPI-08,Technical & Security,Incidents de fuite de données nominatives,Data Privacy & Breach Incidents,0 incident,0.0,incidents,Audit d'absence de persistance des identifiants directs et chiffrement au repos,Niveau 1 (Conformité réglementaire et éthique)
-KPI-09,Economic Viability,Coût marginal direct par profil évalué,Direct Marginal Cost per Profile,≤ 0.50 €,0.5,€ / profil,Ratio dépenses directes (serveurs + tokens + stockage) / profils évalués,Niveau 2 (Médiation médico-économique)
-KPI-10,Decision Support,Taux d'adhésion des soignants aux propositions,Clinician Concordance & Adherence,≥ 90.0%,90.0,%,Proportion des orientations préventives validées sans modification par le médecin,Niveau 2 (Aide à la décision clinique)
-KPI-11,Documentation & AI,Précision des citations documentaires RAG,RAG Citation Precision & Grounding,100.0%,100.0,%,Vérification systématique de l'ancrage des citations dans les corpus officiels OMS/CDC,Niveau 1 (Absence d'hallucination)
-KPI-12,Decision Support,Taux de conversion vers le suivi préventif,Prevention Pathway Conversion Rate,≥ 60.0%,60.0,%,Suivi à 30 jours des profils à risque ≥10% ayant bénéficié d'une consultation confirmatoire,Niveau 3 (Parcours de soins réel)
+id,category,name_fr,name_en,target,status,method
+KPI-01,Operational feasibility,Complétude des dossiers,Record completeness,≥ 98%,Proposed target — not measured,Required-field audit
+KPI-02,Operational feasibility,Durée médiane par évaluation,Median assessment duration,≤ 90 s,Proposed target — not measured,Timestamp from intake start to validated result
+KPI-03,Software fidelity,Concordance avec les cellules OMS implémentées,Concordance with implemented WHO cells,100%,Software baseline available; independent clinical review pending,Automated 700-cell text-layer comparison plus expert review
+KPI-04,Allocation integrity,Respect de la capacité,Capacity constraint compliance,100%,Software baseline available; field performance not measured,Selected count must not exceed configured capacity
+KPI-05,Equity monitoring,Écarts de sélection et de suivi entre groupes,Selection and follow-up gaps across groups,Report estimates with uncertainty; no absolute guarantee,Proposed evaluation criterion — not measured,"Prespecified subgroup rates, denominators and uncertainty intervals"
+KPI-06,Usability,Score SUS des utilisateurs,User SUS score,Target to be agreed before pilot,Proposed measure — not measured,Standard 10-item System Usability Scale
+KPI-07,Reliability,Disponibilité de la plateforme,Platform availability,≥ 99.5% proposed,Proposed service target — not measured over a pilot,External uptime monitoring and incident log
+KPI-08,Safety and privacy,Incidents de confidentialité,Privacy incidents,0 serious incidents,Safety target — not a guarantee,"Incident register, severity and corrective action"
+KPI-09,Economic feasibility,Coût technique direct par profil,Direct technical cost per profile,≤ €0.50 proposed,Model target — not observed,"Actual hosting, monitoring and inference invoices divided by evaluated profiles"
+KPI-10,Clinical workflow,Orientations appropriées,Appropriate referrals,Target to be set with clinical governance,Requires independent adjudication,Agreement with prespecified local protocol and independent review
+KPI-11,Documentary AI,Validité des citations RAG,RAG citation validity,100% valid citations proposed,Proposed safety target — not guaranteed,Blinded sample review; invalid or unsupported citations counted as failures
+KPI-12,Care pathway,Suivi approprié complété,Appropriate follow-up completed,Target to be set from baseline data,Real-world outcome — not measured,Documented completion within a prespecified window

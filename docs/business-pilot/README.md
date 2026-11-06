@@ -13,7 +13,7 @@ Il s'appuie directement sur les travaux du chantier 15 (démonstration d'impact 
 | **Membres du Jury** (2 min) | [Synthèse jury (FR)](jury-summary-fr.md) | [Jury Summary (EN)](jury-summary-en.md) | Synthèse exécutive condensée répondant aux 7 questions clés du jury. |
 | **Comité d'évaluation & Direction** | [Rapport de viabilité (FR)](commercial-viability-report-fr.md) | [Commercial Viability (EN)](commercial-viability-report-en.md) | Évaluation stratégique complète du problème économique, de la proposition de valeur et du déploiement. |
 | **Business Developers & Stratèges** | [Parties prenantes & Valeur (FR)](stakeholders-and-value-proposition-fr.md) | [Stakeholders & Value (EN)](stakeholders-and-value-proposition-en.md) | Cartographie des 5 segments clients (décideurs, usagers, financeurs) et matrice de différenciation. |
-| **Économistes & Directeurs Financiers** | [Modèles économiques](business-models-comparison.md) | [Financial Analysis](financial-analysis.md) | Comparatif des 5 modèles de revenus, structure des coûts réels observés, scénarios à 3 ans et point mort. |
+| **Économistes & Directeurs Financiers** | [Modèles économiques](business-models-comparison.md) | [Financial Analysis](financial-analysis.md) | Modèles de revenus, hypothèses de coûts, scénarios corrigés et point mort conditionnel. |
 | **Coordinateurs de santé & Partenaires** | [Protocole pilote opérationnel](pilot-plan.md) | [KPIs & Évaluation pilote](pilot-kpis-and-evaluation.md) | Protocole d'expérimentation en 4 phases (6 mois), grille des 12 KPIs mesurables et seuils Go/No-Go. |
 | **Chefs de projet & Tech Leads** | [Feuille de route stratégique](roadmap.md) | [Sources & Références](references-and-sources.md) | Trajectoire en 7 étapes vers l'industrialisation, dépendances et bibliographie institutionnelle. |
 
@@ -25,6 +25,7 @@ Le sous-dossier [`results/`](results/) contient les artefacts reproductibles gé
 
 - [`results/financial_scenarios.csv`](results/financial_scenarios.csv) : Projections chiffrées sur 3 ans pour les scénarios Prudent, Central et Ambitieux.
 - [`results/cost_breakdown.csv`](results/cost_breakdown.csv) : Ventilation des coûts fixes et semi-variables (infrastructure, tokens, DevOps, support terrain, audit).
+- [`results/cost_inputs.csv`](results/cost_inputs.csv) : Hypothèses monétaires et statut de preuve (aucune facture ou devis dans le dépôt).
 - [`results/pilot_kpis.csv`](results/pilot_kpis.csv) : Tableau de bord des 12 indicateurs clés de performance avec niveaux de preuve associés.
 - [`results/manifest.json`](results/manifest.json) : Empreintes cryptographiques SHA-256 de chaque livrable et paramètres de modélisation.
 - [`results/figures/`](results/figures/) : Figures vectorielles SVG sans dépendance externe :
@@ -52,3 +53,5 @@ Le script réévalue l'ensemble des scénarios, met à jour les fichiers CSV et 
 1. **Aucun partenariat n'est pré-supposé** : Aucun établissement de santé, agence ministérielle ou ONG n'est présenté comme ayant déjà signé un accord commercial avec PREVIA.
 2. **Aucune tarification arbitraire n'est imposée** : Les tarifs mentionnés constituent des hypothèses de modélisation équitables et transparentes, soumises à contractualisation.
 3. **Séparation nette recherche / clinique** : Les résultats synthétiques du chantier 15 démontrent le comportement d'allocation sous contrainte mathématique, sans constituer une allégation d'efficacité clinique réelle sur la réduction de la morbidité ou de la mortalité.
+4. **Statut du code** : Le dépôt est public mais ne comporte pas de fichier `LICENSE`; il est consultable, sans droit général de réutilisation et sans qualification actuelle d'open source/Open-Core.
+5. **Audit final** : Les corrections et limites vérifiées sont synthétisées dans [`final-audit.md`](final-audit.md).
